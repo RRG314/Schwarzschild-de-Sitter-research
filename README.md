@@ -1,8 +1,19 @@
 # Schwarzschild-de Sitter (SdS) Research Repository
 
+[![Release](https://img.shields.io/github/v/release/RRG314/sds-research?display_name=tag)](https://github.com/RRG314/sds-research/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/sds-research/workbench/)
+[![Evidence Policy](https://img.shields.io/badge/Evidence-Exact%20%7C%20Empirical%20%7C%20Retracted-1f6feb)](./docs/overview/status.md)
+
 This repository presents a structured research program on Schwarzschild-de Sitter thermodynamics, spectral/QNM analysis, correction-gap formalization, recursive extensions, and an interactive workbench.
 
-The editorial goal is strict claim discipline: exact results, empirical results, approximation-based results, negative findings, and open questions are explicitly separated.
+The editorial standard is explicit claim discipline: exact results, empirical results, approximation-based results, negative findings, and open questions are separated and labeled.
+
+## Current Release
+
+- Release notes: `docs/releases/v1.0.0.md`
+- Changelog: `CHANGELOG.md`
+- Live workbench: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
 
 ## Interactive Workbench
 
@@ -11,16 +22,16 @@ The editorial goal is strict claim discipline: exact results, empirical results,
 
 ## Evidence Classes
 
-- `exact`: derivation-level statements within stated assumptions.
-- `empirical`: numerical or computational outcomes.
-- `approximation-based`: method-dependent results.
-- `disproven` / `retracted`: claims no longer supported after audit.
-- `open`: unresolved questions.
+- `exact`: derivation-level statements within stated assumptions
+- `empirical`: numerical or computational outcomes
+- `approximation-based`: method-dependent results
+- `disproven` / `retracted`: claims no longer supported after audit
+- `open`: unresolved questions
 
 ## Reading Lanes
 
-- General orientation: `docs/overview/start-here.md`
-- Project-wide status map: `docs/overview/status.md`
+- Orientation: `docs/overview/start-here.md`
+- Status by evidence type: `docs/overview/status.md`
 - Formula summary: `docs/theory/core-formula-sheet.md`
 - Paper navigation: `papers/README.md`
 - Foundational lane: `papers/foundational/README.md`
@@ -31,28 +42,28 @@ The editorial goal is strict claim discipline: exact results, empirical results,
 ## Main Research Areas
 
 1. Core SdS theory
-- Horizon identities and entropy structure
+- horizon identities and entropy structure
 - Eisenstein-coordinate formulation
-- Exact temperature-ratio and Carnot relations within model scope
+- exact temperature-ratio and Carnot relations in model scope
 
 2. Spectral / QNM program
-- Formal framework and statement pipeline
-- Numerical scans and reproducible artifacts
-- Negative and retracted findings retained with explicit audit history
+- formal framework and statement pipeline
+- numerical scans and reproducible artifacts
+- explicit retention of negative and retracted outcomes
 
 3. Correction-gap / cross-domain program
-- Theorem-schema construction
-- Scope limits and no-go framing
+- theorem-schema construction
+- scope limits and no-go framing
 
 4. Recursive spacetime and extensions
-- Recursive-horizon baselines
+- recursive-horizon baselines
 - RNdS and extension diagnostics
-- Robustness and scalar-field audits
+- robustness and scalar-field audits
 
 5. SdS workbench application
-- State-space exploration
-- Saved states, comparisons, exports
-- Evolution trajectories under a simplified semiclassical parameter model
+- state-space exploration
+- saved states, comparisons, exports
+- evolution trajectories under simplified semiclassical parameter flow
 
 ## Repository Map
 
@@ -61,8 +72,9 @@ The editorial goal is strict claim discipline: exact results, empirical results,
 - `docs/spectral/`: spectral framework, derivations, audits, status files
 - `docs/correction-gap/`: correction-gap formalization and limits
 - `docs/recursive-spacetime/`: recursive and extension analyses
+- `docs/releases/`: release notes
 - `papers/`: lane-based navigation and manuscript locations
-- `app/sds-workbench/`: React + TypeScript source for the interactive tool
+- `app/sds-workbench/`: React + TypeScript workbench source
 - `workbench/`: static build served from GitHub Pages
 - `src/`: Python modules used by experiment suites
 - `experiments/`: experiment scripts by program area

@@ -14,6 +14,32 @@ We then classify polynomial entropy closure across spacetime dimensions. For fiv
 
 ---
 
+## Reader Summary
+
+This paper gives a direct algebraic derivation of the 4D SdS entropy identity and develops consequences that follow from it without approximation.
+
+In practical terms, it establishes:
+
+- a closed entropy relation between the black-hole horizon, cosmological horizon, and pure de Sitter reference state,
+- exact formulas for deficit and Carnot-related derivatives within the SdS model,
+- a dimensional classification showing why the same polynomial closure structure appears in 4D and 5D but not in $D \geq 6$.
+
+---
+
+## Claim Scope and Evidence Class
+
+Evidence class for the central statements in this manuscript: **exact (within stated model assumptions)**.
+
+Scope:
+
+- classical Schwarzschild-de Sitter horizon thermodynamics with $\Lambda > 0$,
+- algebraic derivation framework using the horizon polynomial and Vieta relations,
+- dimensional closure analysis in the same mathematical setting.
+
+This manuscript does **not** claim observational confirmation, and it does not present approximate numerical agreement as formal proof.
+
+---
+
 ## 1. Introduction
 
 Schwarzschild–de Sitter spacetime is the unique spherically symmetric solution to the Einstein field equations with positive cosmological constant $\Lambda > 0$ and mass parameter $M > 0$. It is distinguished among black hole spacetimes by possessing two distinct Killing horizons in causal contact with any static observer: a black hole horizon at $r = r_b$ and a cosmological horizon at $r = r_c > r_b$. Both carry Bekenstein–Hawking entropy proportional to their horizon area, and both radiate thermally at distinct Hawking temperatures $T_b$ and $T_c$. The static region between the two horizons is a compact causal diamond.

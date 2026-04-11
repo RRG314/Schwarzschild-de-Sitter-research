@@ -16,6 +16,32 @@ We also show that this Eisenstein structure is unique to $D = 4$: only in four s
 
 ---
 
+## Reader Summary
+
+This paper reframes the 4D SdS thermodynamic phase space using Eisenstein coordinates and shows how key thermodynamic relations follow from that geometry.
+
+Core outcomes:
+
+- the phase-space arc is represented by an exact quadratic constraint in Eisenstein coordinates,
+- the temperature ratio and Carnot relation are derived from that structure,
+- the associated elliptic-curve invariants are connected to the SdS extremality parameter in closed form.
+
+---
+
+## Claim Scope and Evidence Class
+
+Evidence class for central statements in this manuscript: **exact (within stated model assumptions)**.
+
+Scope:
+
+- 4D SdS algebraic and geometric thermodynamic structure,
+- exact derivations under fixed-$\Lambda$ model assumptions,
+- dimensional comparison statements for $D = 4, 5,$ and $D \geq 6$ in the same formal framework.
+
+This manuscript does **not** claim observational confirmation, and it does not treat exploratory interpretation as proof.
+
+---
+
 ## 1. Introduction
 
 Schwarzschild–de Sitter (SdS) spacetime has two horizons: a black hole horizon at $r = r_b$ and a cosmological horizon at $r = r_c$. Each carries Bekenstein–Hawking entropy $S_b = \pi r_b^2$ and $S_c = \pi r_c^2$ and radiates at a distinct Hawking temperature. The pure de Sitter space has a single cosmological horizon with entropy $S_\Lambda = 3\pi/\Lambda$.

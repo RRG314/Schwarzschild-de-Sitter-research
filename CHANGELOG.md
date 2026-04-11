@@ -1,32 +1,37 @@
 # Changelog
 
-## 2026-04-10
+All notable changes to this repository are documented here.
+
+## [v1.0.0] - 2026-04-10
 
 ### Added
-- Full SDS-focused repository scaffold with professional research layout.
-- Provenance artifacts:
-  - `scripts/migrate/sds_migration_map.source.csv`
-  - `scripts/migrate/migration-manifest.csv`
-  - `scripts/migrate/migration-conflicts.json`
-- Consolidated imports from local SDS corpus (theory, spectral, correction-gap, recursive projects, app code).
-- New `Evolution` mode in `app/sds-workbench`:
+
+- Full SDS-focused repository structure with lane-based navigation (`foundational`, `experimental`, `disproven/retracted`, `open questions`).
+- Canonical overview pages and orientation documents.
+- Public GitHub Pages landing site with direct workbench entry.
+- Interactive SdS workbench evolution mode with:
   - initial-state selection (current/saved)
   - time slider
   - play/pause/reset
-  - step forward/back
+  - step forward/backward
   - speed control
   - trajectory export (CSV/JSON)
-- New evolution engine and tests:
-  - `src/engine/evolution.ts`
-  - physics and evolution unit tests via Vitest
-- Python compatibility layer for reorganized modules under `src/`.
+- Formula-focused theory summaries and release documentation.
+- Migration provenance records:
+  - `scripts/migrate/sds_migration_map.source.csv`
+  - `scripts/migrate/migration-manifest.csv`
+  - `scripts/migrate/migration-conflicts.json`
 
 ### Changed
-- Normalized recursive-spacetime documentation naming to preserve both baseline and extended-system variants.
-- Updated Vite configuration for GitHub Pages base-path compatibility.
-- Added app test scripts and Vitest setup.
+
+- Reorganized research materials into clear evidence classes and reader lanes.
+- Standardized presentation language across top-level docs for professional research framing.
+- Normalized notation in key entry docs (`\Lambda`, `\Delta`, equation formatting).
+- Updated flagship manuscript front matter with reader summary and explicit claim scope.
 
 ### Validation
-- App tests: 5 passed
-- App build: successful
-- Python migrated math tests: 61 passed (selected suite)
+
+- App unit tests: 5 passed
+- App production build: successful
+- Selected migrated Python math suite: 61 passed
+- Markdown link validation: passed
