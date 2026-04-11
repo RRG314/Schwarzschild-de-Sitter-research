@@ -1,0 +1,16 @@
+{
+  "nariai_symmetry_max_deviation": 9.10029996811399,
+  "overtone_ratio": {
+    "rms_re": 0.3992958020335422,
+    "rms_im": 0.31577790043483933,
+    "im_ratio_mean": 1.3999179240836543,
+    "im_ratio_std": 0.35397641463176976,
+    "re_ratio_mean": 2.2549542875306696,
+    "re_ratio_std": 0.4660163852906856
+  },
+  "eisenstein_norm": {
+    "corr_entropy": 0.7316354742292404,
+    "corr_l2": 0.9999971174340535,
+    "EN_std_over_mean": 2.1586885846522215
+  }
+}

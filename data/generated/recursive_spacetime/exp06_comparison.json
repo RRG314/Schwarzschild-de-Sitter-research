@@ -1,0 +1,71 @@
+{
+  "old_model_arc": {
+    "n_states": 100,
+    "d_s_rb_rc": 1.0866517687421888,
+    "pca_intrinsic_dim": 1,
+    "max_entropy_residual": 1.5987211554602254e-14,
+    "assessment": "1D arc \u2014 consistent with old model spectral_dim ~1 finding"
+  },
+  "form_A_comparison": {
+    "M_only_flow": {
+      "d_s": 1.2265429823700713,
+      "pca": 1,
+      "note": "1D by construction"
+    },
+    "coupled_ML_flow": {
+      "d_s": 1.0698844327640546,
+      "pca": 1,
+      "lambda_varies": true,
+      "lambda_range": [
+        0.75543106894629,
+        1.0
+      ]
+    },
+    "genuine_upgrade_over_old": false
+  },
+  "form_C_rnds_orbits": {
+    "rnds_2d_circular": {
+      "n_valid": 401,
+      "d_s": 1.0697354162103307,
+      "pca": 2
+    },
+    "rnds_3d_coupled": {
+      "n_valid": 501,
+      "d_s": 1.2291013080954205,
+      "pca": 1
+    }
+  },
+  "dimension_comparison": {
+    "old_arc": {
+      "d_s": 1.0866517687421888,
+      "classification": "1D \u2014 no upgrade"
+    },
+    "sds_M_only": {
+      "d_s": 1.2265429823700713,
+      "classification": "~1.5D \u2014 marginal upgrade"
+    },
+    "sds_ML_coupled": {
+      "d_s": 1.0698844327640546,
+      "classification": "1D \u2014 no upgrade"
+    },
+    "rnds_2d": {
+      "d_s": 1.0697354162103307,
+      "classification": "1D \u2014 no upgrade"
+    },
+    "rnds_3d": {
+      "d_s": 1.2291013080954205,
+      "classification": "~1.5D \u2014 marginal upgrade"
+    }
+  },
+  "additions_vs_old": {
+    "RNdS_quartic_solver": "NEW \u2014 handles 3-parameter (M,Q,Lambda) spacetime",
+    "Vieta_checks_all_4": "NEW \u2014 full algebraic verification of quartic roots",
+    "electric_potential_Phi": "NEW \u2014 Phi = Q/r at each horizon",
+    "3_horizon_temperatures": "NEW \u2014 T_inner, T_outer, T_cosmo all computed",
+    "entropy_deficit_2horizon": "NEW \u2014 Delta = S_Lambda - (S_outer + S_cosmo) for RNdS",
+    "entropy_identity_SdS": "INHERITED \u2014 exact, machine precision",
+    "flow_labels_PHYS_CONV_EXPL": "NEW \u2014 explicit epistemic tagging",
+    "scalar_field_audit": "NEW \u2014 honest audit, verdict: NOT USEFUL",
+    "spectral_dim_upgrade": "PARTIAL \u2014 only [EXPL] arbitrary 3D flow gets d_s > 1"
+  }
+}

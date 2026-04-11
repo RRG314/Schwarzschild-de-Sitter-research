@@ -1,0 +1,22 @@
+{
+  "exp01_wkb_baseline": {
+    "status": "PASS",
+    "time_s": 1.2497007846832275
+  },
+  "exp02_lambda_scaling": {
+    "status": "PASS",
+    "time_s": 1.8438620567321777
+  },
+  "exp03_eisenstein_spectral": {
+    "status": "PASS",
+    "time_s": 2.7036290168762207
+  },
+  "exp04_inverse_spectroscopy": {
+    "status": "PASS",
+    "time_s": 3.3275623321533203
+  },
+  "exp05_rdt_overtone": {
+    "status": "PASS",
+    "time_s": 0.4624650478363037
+  }
+}

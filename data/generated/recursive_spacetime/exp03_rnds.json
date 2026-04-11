@@ -1,0 +1,196 @@
+{
+  "A_baseline": {
+    "n_admissible": 56,
+    "vieta_max_residual": 6.217248937900877e-15,
+    "T_outer_positive": true,
+    "T_cosmo_positive": true,
+    "Delta_total_range": [
+      0.1796876514285337,
+      3.0660191078816252
+    ],
+    "note": "No exact entropy identity exists for RNdS. Delta_total = S_Lambda - S_outer - S_cosmo is defined numerically."
+  },
+  "B_phys_gradient": {
+    "label": "PHYS",
+    "admissibility_rate": 1.0,
+    "Q_range": [
+      0.05675559849147952,
+      0.058770343423459895
+    ],
+    "Q_varies_meaningfully": true,
+    "spectral_dim_2d": {
+      "d_s": 1.2309825164486743,
+      "d_s_se": 0.07143229838449923,
+      "ambient_dim": 2,
+      "d_s_over_ambient": 0.6154912582243371,
+      "n_zero_modes": 1,
+      "n_points": 801,
+      "t_range": [
+        0.3,
+        3.0
+      ]
+    },
+    "pca_intrinsic_dim": 1,
+    "multiscale": [
+      {
+        "d_s": 0.17352270579008852,
+        "d_s_se": 0.007864172994058352,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.08676135289504426,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          0.05,
+          0.3
+        ],
+        "scale_label": "short"
+      },
+      {
+        "d_s": 0.8629319741818073,
+        "d_s_se": 0.026341780926202006,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.43146598709090367,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          0.3,
+          1.0
+        ],
+        "scale_label": "intermediate"
+      },
+      {
+        "d_s": 3.2677248132728196,
+        "d_s_se": 0.13303888869103395,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 1.6338624066364098,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          1.0,
+          5.0
+        ],
+        "scale_label": "long"
+      },
+      {
+        "d_s": 15.100330649700874,
+        "d_s_se": 0.5193575324758105,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 7.550165324850437,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          5.0,
+          20.0
+        ],
+        "scale_label": "very_long"
+      }
+    ]
+  },
+  "C_expl_circular": {
+    "label": "EXPL",
+    "admissibility_rate": 1.0,
+    "spectral_dim_2d": {
+      "d_s": 1.0494440027980259,
+      "d_s_se": 0.04984713194973662,
+      "ambient_dim": 2,
+      "d_s_over_ambient": 0.5247220013990129,
+      "n_zero_modes": 1,
+      "n_points": 1001,
+      "t_range": [
+        0.3,
+        3.0
+      ]
+    },
+    "pca_intrinsic_dim": 2,
+    "multiscale": [
+      {
+        "d_s": 0.17047806823434522,
+        "d_s_se": 0.007592159923428629,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.08523903411717261,
+        "n_zero_modes": 1,
+        "n_points": 1001,
+        "t_range": [
+          0.05,
+          0.3
+        ],
+        "scale_label": "short"
+      },
+      {
+        "d_s": 0.7844039616103861,
+        "d_s_se": 0.021366270946141994,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.39220198080519303,
+        "n_zero_modes": 1,
+        "n_points": 1001,
+        "t_range": [
+          0.3,
+          1.0
+        ],
+        "scale_label": "intermediate"
+      },
+      {
+        "d_s": 1.905936901674052,
+        "d_s_se": 0.02206464117950805,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.952968450837026,
+        "n_zero_modes": 1,
+        "n_points": 1001,
+        "t_range": [
+          1.0,
+          5.0
+        ],
+        "scale_label": "long"
+      },
+      {
+        "d_s": 1.1041778541639533,
+        "d_s_se": 0.00879547032626904,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.5520889270819767,
+        "n_zero_modes": 1,
+        "n_points": 1001,
+        "t_range": [
+          5.0,
+          20.0
+        ],
+        "scale_label": "very_long"
+      }
+    ],
+    "note": "Circular orbit is genuinely 2D by design. If d_s~2, confirms 2D geometry."
+  },
+  "D_expl_3d": {
+    "label": "EXPL",
+    "admissibility_rate": 1.0,
+    "spectral_dim_3d": {
+      "d_s": 1.2293191254056308,
+      "d_s_se": 0.07117830563504021,
+      "ambient_dim": 3,
+      "d_s_over_ambient": 0.40977304180187696,
+      "n_zero_modes": 1,
+      "n_points": 501,
+      "t_range": [
+        0.3,
+        3.0
+      ]
+    },
+    "pca_intrinsic_dim": 1
+  },
+  "E_comparison": {
+    "sds_1d_arc": {
+      "d_s": 1.0610512980656195,
+      "pca_dim": 1
+    },
+    "rnds_gradient": {
+      "d_s": 1.2309825164486743,
+      "pca_dim": 1
+    },
+    "rnds_circular": {
+      "d_s": 1.0494440027980259,
+      "pca_dim": 2
+    },
+    "rnds_3d": {
+      "d_s": 1.2293191254056308,
+      "pca_dim": 1
+    }
+  }
+}

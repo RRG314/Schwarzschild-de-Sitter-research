@@ -1,0 +1,68 @@
+{
+  "sds_entropy_identity_robustness": {
+    "n_valid": 600,
+    "n_total": 600,
+    "max_residual": 1.7053025658242404e-13,
+    "mean_residual": -2.4669155607170977e-15,
+    "std_residual": 2.834295190907302e-14,
+    "assessment": "ROBUST: entropy identity holds to machine precision across all (M,Lambda)"
+  },
+  "rnds_vieta_robustness": {
+    "n_valid": 252,
+    "n_total": 252,
+    "max_e1": 5.10702591327572e-15,
+    "max_e2": 1.1546319456101628e-14,
+    "max_e3": 6.661338147750939e-15,
+    "max_e4": 7.771561172376096e-16,
+    "assessment": "ROBUST: Vieta identities hold to machine precision"
+  },
+  "attractor_stability": {
+    "lam": 1.0,
+    "n_init": 20,
+    "n_converged": 20,
+    "final_M_std": 5.551115123125783e-17,
+    "final_x_std": 3.3306690738754696e-16,
+    "single_attractor": true,
+    "assessment": "ROBUST: gradient flow converges to single attractor from all initial conditions"
+  },
+  "spectral_dim_robustness": {
+    "by_lambda": {
+      "lam_0.1": {
+        "n_states": 0,
+        "d_s": null
+      },
+      "lam_0.5": {
+        "n_states": 12,
+        "d_s": 1.252791420786902,
+        "d_s_se": 0.0669788176690291,
+        "pca_intrinsic_dim": 2
+      },
+      "lam_1.0": {
+        "n_states": 60,
+        "d_s": 1.102788149908885,
+        "d_s_se": 0.05474961626402821,
+        "pca_intrinsic_dim": 2
+      },
+      "lam_2.0": {
+        "n_states": 60,
+        "d_s": 1.1027881499088836,
+        "d_s_se": 0.05474961626402826,
+        "pca_intrinsic_dim": 2
+      },
+      "lam_5.0": {
+        "n_states": 60,
+        "d_s": 1.102788149908885,
+        "d_s_se": 0.054749616264028224,
+        "pca_intrinsic_dim": 2
+      }
+    },
+    "consistent_1d": true,
+    "d_s_values": [
+      1.252791420786902,
+      1.102788149908885,
+      1.1027881499088836,
+      1.102788149908885
+    ],
+    "assessment": "ROBUST: SdS arc is consistently ~1D across all Lambda values"
+  }
+}

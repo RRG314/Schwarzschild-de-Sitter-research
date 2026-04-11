@@ -1,0 +1,143 @@
+{
+  "audit_by_lambda": {
+    "Lambda_0.01": {
+      "Lambda": 0.01,
+      "r_Lambda": 17.320508075688775,
+      "r_b_range": [
+        NaN,
+        NaN
+      ],
+      "n_distinct_phi_rb": 0,
+      "n_distinct_phi_rc": 0,
+      "unique_phi_rb": [],
+      "unique_phi_rc": [],
+      "phi_rb_constant": true,
+      "entropy_of_phi_bits": 0.0,
+      "corr_phi_rb_with_x": null,
+      "unit_dependent": false,
+      "useful": false,
+      "reasons_not_useful": [
+        "phi is CONSTANT over the SdS arc at Lambda=0.01: all r_b \u2208 (nan, nan) give floor(r_b)=same integer.",
+        "phi takes only 0 distinct value(s) over the arc: []. Cannot be a useful state variable.",
+        "Information content of phi is very low: entropy = 0.000 bits. (Maximum possible = log2(0) = 0.00 bits)"
+      ],
+      "final_classification": "NOT USEFUL FOR THIS PROJECT"
+    },
+    "Lambda_0.1": {
+      "Lambda": 0.1,
+      "r_Lambda": 5.477225575051661,
+      "r_b_range": [
+        0.5504838665946206,
+        1.8009444963840087
+      ],
+      "n_distinct_phi_rb": 1,
+      "n_distinct_phi_rc": 1,
+      "unique_phi_rb": [
+        0
+      ],
+      "unique_phi_rc": [
+        2
+      ],
+      "phi_rb_constant": true,
+      "entropy_of_phi_bits": -0.0,
+      "corr_phi_rb_with_x": null,
+      "unit_dependent": true,
+      "useful": false,
+      "reasons_not_useful": [
+        "phi is CONSTANT over the SdS arc at Lambda=0.1: all r_b \u2208 (0.550, 1.801) give floor(r_b)=same integer.",
+        "phi takes only 1 distinct value(s) over the arc: [0]. Cannot be a useful state variable.",
+        "phi is unit-dependent: rescaling r by 2 changes phi values. This makes phi physically meaningless \u2014 it depends on arbitrary unit choices.",
+        "Information content of phi is very low: entropy = -0.000 bits. (Maximum possible = log2(1) = 0.00 bits)"
+      ],
+      "final_classification": "NOT USEFUL FOR THIS PROJECT"
+    },
+    "Lambda_1.0": {
+      "Lambda": 1.0,
+      "r_Lambda": 1.7320508075688772,
+      "r_b_range": [
+        0.017233696556464506,
+        0.9949706868993267
+      ],
+      "n_distinct_phi_rb": 1,
+      "n_distinct_phi_rc": 1,
+      "unique_phi_rb": [
+        0
+      ],
+      "unique_phi_rc": [
+        0
+      ],
+      "phi_rb_constant": true,
+      "entropy_of_phi_bits": -0.0,
+      "corr_phi_rb_with_x": null,
+      "unit_dependent": false,
+      "useful": false,
+      "reasons_not_useful": [
+        "phi is CONSTANT over the SdS arc at Lambda=1.0: all r_b \u2208 (0.017, 0.995) give floor(r_b)=same integer.",
+        "phi takes only 1 distinct value(s) over the arc: [0]. Cannot be a useful state variable.",
+        "Information content of phi is very low: entropy = -0.000 bits. (Maximum possible = log2(1) = 0.00 bits)"
+      ],
+      "final_classification": "NOT USEFUL FOR THIS PROJECT"
+    },
+    "Lambda_10.0": {
+      "Lambda": 10.0,
+      "r_Lambda": 0.5477225575051661,
+      "r_b_range": [
+        0.0005449239227855255,
+        0.021112420977839944
+      ],
+      "n_distinct_phi_rb": 1,
+      "n_distinct_phi_rc": 1,
+      "unique_phi_rb": [
+        0
+      ],
+      "unique_phi_rc": [
+        0
+      ],
+      "phi_rb_constant": true,
+      "entropy_of_phi_bits": -0.0,
+      "corr_phi_rb_with_x": null,
+      "unit_dependent": false,
+      "useful": false,
+      "reasons_not_useful": [
+        "phi is CONSTANT over the SdS arc at Lambda=10.0: all r_b \u2208 (0.001, 0.021) give floor(r_b)=same integer.",
+        "phi takes only 1 distinct value(s) over the arc: [0]. Cannot be a useful state variable.",
+        "Information content of phi is very low: entropy = -0.000 bits. (Maximum possible = log2(1) = 0.00 bits)"
+      ],
+      "final_classification": "NOT USEFUL FOR THIS PROJECT"
+    }
+  },
+  "phi_as_state_var": {
+    "n_states": 50,
+    "unique_phi_pairs": 1,
+    "phi_rb_values": [
+      0
+    ],
+    "phi_rc_values": [
+      0
+    ],
+    "corr_phirb_M": null,
+    "phi_adds_independent_info": false,
+    "assessment": "phi adds NO independent information \u2014 collapses to constant or near-constant"
+  },
+  "phi_attractor_test": {
+    "attractor_no_phi": 0.1744350193622324,
+    "attractor_with_phi": {
+      "mu_0.001": 0.1744350193622324,
+      "mu_0.01": 0.1744350193622324,
+      "mu_0.1": 0.1744350193622324,
+      "mu_0.5": 0.1744350193622324
+    },
+    "any_significant_shift": false,
+    "assessment": "phi coupling does NOT shift the attractor \u2014 phi is ineffective as a driver"
+  },
+  "final_verdict": {
+    "classification": "NOT USEFUL FOR THIS PROJECT",
+    "reasons": [
+      "Audit across Lambda values: all show \u22642 distinct phi values over SdS arc",
+      "phi adds no independent state information",
+      "phi coupling does not shift attractor",
+      "Field is integer-valued, discontinuous, unit-dependent",
+      "No physical coupling to SdS metric or thermodynamics"
+    ]
+  }
+}

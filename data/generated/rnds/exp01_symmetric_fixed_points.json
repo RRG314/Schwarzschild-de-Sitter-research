@@ -1,0 +1,579 @@
+{
+  "description": "Symmetric power map fixed-point scan",
+  "lambda_range": [
+    0.1,
+    3.0
+  ],
+  "n_lambda_values": 30,
+  "theoretical_prediction": {
+    "lambda_gt_1": "x -> 1 (Nariai boundary)",
+    "lambda_lt_1": "x -> 0 (BH boundary)"
+  },
+  "results": [
+    {
+      "lambda": 0.1,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.99999999539483,
+          "spectral_radius": 0.10000000000287557,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.2,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999811372231,
+          "spectral_radius": 0.20000000000575113,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.30000000000000004,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999801762527,
+          "spectral_radius": 0.3000000000086267,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.4,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999797462474,
+          "spectral_radius": 0.40000000001150227,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.5,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999656888089,
+          "spectral_radius": 0.5000000000143778,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.6,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999715001914,
+          "spectral_radius": 0.5999999999894978,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.7000000000000001,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999594170366,
+          "spectral_radius": 0.700000000020129,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.8,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999999186336891,
+          "spectral_radius": 0.8000000000230049,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 0.9,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.9999990000000002,
+      "attractor_std_x": 1.1102230246251565e-16,
+      "fixed_points": [
+        {
+          "x": 0.9999998397586153,
+          "spectral_radius": 0.8999999999981263,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.0,
+      "n_fixed_points": 30,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 0.3,
+      "attractor_std_x": 5.551115123125783e-17,
+      "fixed_points": [
+        {
+          "x": 0.01,
+          "spectral_radius": 0.9999999999995473,
+          "stable": false
+        },
+        {
+          "x": 0.04379310344827586,
+          "spectral_radius": 1.0000000000009845,
+          "stable": false
+        },
+        {
+          "x": 0.07758620689655171,
+          "spectral_radius": 0.9999999999989841,
+          "stable": false
+        },
+        {
+          "x": 0.11137931034482758,
+          "spectral_radius": 1.0000000000035145,
+          "stable": false
+        },
+        {
+          "x": 0.14517241379310344,
+          "spectral_radius": 0.999999999996211,
+          "stable": false
+        },
+        {
+          "x": 0.1789655172413793,
+          "spectral_radius": 1.0000000000054097,
+          "stable": false
+        },
+        {
+          "x": 0.21275862068965515,
+          "spectral_radius": 0.9999999999941412,
+          "stable": false
+        },
+        {
+          "x": 0.246551724137931,
+          "spectral_radius": 1.0000000000036096,
+          "stable": false
+        },
+        {
+          "x": 0.2803448275862069,
+          "spectral_radius": 0.9999999999833878,
+          "stable": false
+        },
+        {
+          "x": 0.31413793103448273,
+          "spectral_radius": 0.9999999999892432,
+          "stable": false
+        },
+        {
+          "x": 0.34793103448275864,
+          "spectral_radius": 0.9999999999588354,
+          "stable": false
+        },
+        {
+          "x": 0.38172413793103444,
+          "spectral_radius": 0.9999999999839106,
+          "stable": false
+        },
+        {
+          "x": 0.4155172413793103,
+          "spectral_radius": 0.9999999999762936,
+          "stable": false
+        },
+        {
+          "x": 0.4493103448275862,
+          "spectral_radius": 0.9999999999896585,
+          "stable": false
+        },
+        {
+          "x": 0.48310344827586205,
+          "spectral_radius": 0.9999999999834194,
+          "stable": false
+        },
+        {
+          "x": 0.5168965517241378,
+          "spectral_radius": 1.0000000000074418,
+          "stable": false
+        },
+        {
+          "x": 0.5506896551724138,
+          "spectral_radius": 1.0000000000117566,
+          "stable": false
+        },
+        {
+          "x": 0.5844827586206897,
+          "spectral_radius": 0.9999999999832045,
+          "stable": false
+        },
+        {
+          "x": 0.6182758620689655,
+          "spectral_radius": 0.9999999999964093,
+          "stable": false
+        },
+        {
+          "x": 0.6520689655172414,
+          "spectral_radius": 0.9999999999865606,
+          "stable": false
+        },
+        {
+          "x": 0.6858620689655172,
+          "spectral_radius": 1.0000000000403495,
+          "stable": false
+        },
+        {
+          "x": 0.7196551724137931,
+          "spectral_radius": 0.9999999999925984,
+          "stable": false
+        },
+        {
+          "x": 0.7534482758620689,
+          "spectral_radius": 1.0000000000076374,
+          "stable": false
+        },
+        {
+          "x": 0.7872413793103447,
+          "spectral_radius": 1.0000000000296634,
+          "stable": false
+        },
+        {
+          "x": 0.8210344827586207,
+          "spectral_radius": 1.0000000000616973,
+          "stable": false
+        },
+        {
+          "x": 0.8548275862068966,
+          "spectral_radius": 1.000000000039336,
+          "stable": false
+        },
+        {
+          "x": 0.8886206896551725,
+          "spectral_radius": 1.0000000000251443,
+          "stable": false
+        },
+        {
+          "x": 0.9224137931034482,
+          "spectral_radius": 1.0000000000302662,
+          "stable": false
+        },
+        {
+          "x": 0.9562068965517242,
+          "spectral_radius": 1.0000000000057665,
+          "stable": false
+        },
+        {
+          "x": 0.9899999999999999,
+          "spectral_radius": 1.0000000000147933,
+          "stable": false
+        }
+      ]
+    },
+    {
+      "lambda": 1.1,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 4.420828436856891e-09,
+          "spectral_radius": 0.12541274909382888,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.2,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 2.514004669458691e-09,
+          "spectral_radius": 0.031143064563158872,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.3,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000000243811042e-09,
+          "spectral_radius": 0.00743476990533516,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.4,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000000145177078e-09,
+          "spectral_radius": 0.001493323857561017,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.5,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000001333709765e-09,
+          "spectral_radius": 7.509375855413626e-07,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.6,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 6.4268771731701784e-09,
+          "spectral_radius": 7.771561172376096e-10,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.7000000000000002,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000014106510366e-09,
+          "spectral_radius": 9.992007221626409e-10,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.8,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000002980181031e-09,
+          "spectral_radius": 8.326672684688674e-10,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 1.9,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.000000057243164e-09,
+          "spectral_radius": 9.43689570931383e-10,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.0,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000000100000001e-09,
+          "spectral_radius": 9.992007221626409e-10,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.1,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.5135612484362058e-09,
+          "spectral_radius": 9.992007221626409e-10,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.2,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000437936193183e-09,
+          "spectral_radius": 1.0547118733938987e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.3,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000288874739855e-09,
+          "spectral_radius": 1.1102230246251565e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.4000000000000004,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000190190498795e-09,
+          "spectral_radius": 1.2212453270876722e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.5,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.000012500140625e-09,
+          "spectral_radius": 1.2212453270876722e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.6,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000082025049953e-09,
+          "spectral_radius": 1.27675647831893e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.7,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000053744719431e-09,
+          "spectral_radius": 1.3322676295501878e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.8,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000035166516043e-09,
+          "spectral_radius": 1.4432899320127035e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 2.9000000000000004,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.0000022980995908e-09,
+          "spectral_radius": 1.3877787807814457e-09,
+          "stable": true
+        }
+      ]
+    },
+    {
+      "lambda": 3.0,
+      "n_fixed_points": 1,
+      "attractor_type": "fixed",
+      "attractor_mean_x": 1.0000000000000004e-06,
+      "attractor_std_x": 4.235164736271502e-22,
+      "fixed_points": [
+        {
+          "x": 1.000001500001875e-09,
+          "spectral_radius": 1.5543122344752192e-09,
+          "stable": true
+        }
+      ]
+    }
+  ]
+}

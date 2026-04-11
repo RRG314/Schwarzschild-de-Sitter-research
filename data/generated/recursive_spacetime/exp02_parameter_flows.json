@@ -1,0 +1,140 @@
+{
+  "A_phys_gradient": {
+    "label": "PHYS",
+    "flow": "M-gradient descent, fixed Lambda",
+    "M_initial": 0.049999999999999996,
+    "M_final": 0.333,
+    "Lambda_fixed": 1.0,
+    "admissibility_rate": 1.0,
+    "spectral_dim": {
+      "d_s": 1.2305575283447443,
+      "d_s_se": 0.07133525584336135,
+      "ambient_dim": 2,
+      "d_s_over_ambient": 0.6152787641723722,
+      "n_zero_modes": 1,
+      "n_points": 501,
+      "t_range": [
+        0.3,
+        3.0
+      ]
+    },
+    "pca_intrinsic_dim": 1,
+    "max_lyapunov": -69.07755278982142,
+    "convergence": "M -> 0 (pure dS) as expected",
+    "note": "This flow is physically derived but 1D (Lambda constant). Same topology as old model."
+  },
+  "B_conv_nariai": {
+    "label": "CONV",
+    "flow": "Linear interpolation toward Nariai, Lambda fixed",
+    "M_final": 0.3333,
+    "M_Nariai": 0.3333333333333333,
+    "admissibility_rate": 1.0,
+    "spectral_dim": {
+      "d_s": 1.1091676771689392,
+      "d_s_se": 0.05667020003941482,
+      "ambient_dim": 2,
+      "d_s_over_ambient": 0.5545838385844696,
+      "n_zero_modes": 1,
+      "n_points": 301,
+      "t_range": [
+        0.3,
+        3.0
+      ]
+    },
+    "pca_intrinsic_dim": 1,
+    "max_lyapunov": -0.8858833881814586,
+    "note": "Converges to Nariai boundary (degenerate). Also 1D."
+  },
+  "C_expl_coupled": {
+    "gradient_both": {
+      "label": "EXPL",
+      "admissibility_rate": 1.0,
+      "lambda_range": [
+        1.0,
+        1.0005432740340918
+      ],
+      "lambda_varies_meaningfully": true,
+      "spectral_dim": {
+        "d_s": 1.0404239856025257,
+        "d_s_se": 0.04885086011190395,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.5202119928012628,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          0.3,
+          3.0
+        ]
+      },
+      "pca_intrinsic_dim": 1,
+      "max_lyapunov": -0.009051099069152064
+    },
+    "thermalization": {
+      "label": "EXPL",
+      "admissibility_rate": 1.0,
+      "lambda_range": [
+        0.4058891074892407,
+        1.0
+      ],
+      "lambda_varies_meaningfully": true,
+      "spectral_dim": {
+        "d_s": 1.0539425785802574,
+        "d_s_se": 0.05029125860280054,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.5269712892901287,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          0.3,
+          3.0
+        ]
+      },
+      "pca_intrinsic_dim": 1,
+      "max_lyapunov": -0.003663787272289182
+    },
+    "free": {
+      "label": "EXPL",
+      "admissibility_rate": 1.0,
+      "lambda_range": [
+        1.0,
+        2.030748299580253
+      ],
+      "lambda_varies_meaningfully": true,
+      "spectral_dim": {
+        "d_s": 1.053355285322153,
+        "d_s_se": 0.05023183745168633,
+        "ambient_dim": 2,
+        "d_s_over_ambient": 0.5266776426610765,
+        "n_zero_modes": 1,
+        "n_points": 801,
+        "t_range": [
+          0.3,
+          3.0
+        ]
+      },
+      "pca_intrinsic_dim": 2,
+      "max_lyapunov": -59.406695399246324
+    }
+  },
+  "D_conv_constantx": {
+    "label": "CONV",
+    "spectral_dim": {
+      "d_s": 1.0608540349134588,
+      "d_s_se": 0.05080709335412045,
+      "ambient_dim": 2,
+      "d_s_over_ambient": 0.5304270174567294,
+      "n_zero_modes": 1,
+      "n_points": 201,
+      "t_range": [
+        0.3,
+        3.0
+      ]
+    },
+    "pca_intrinsic_dim": 2,
+    "lambda_range": [
+      1.0,
+      369.35581521559214
+    ],
+    "note": "Scales both M,Lambda to preserve x. Orbit traces a 1D curve in 2D space."
+  }
+}

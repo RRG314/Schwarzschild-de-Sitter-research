@@ -1,0 +1,37 @@
+{
+  "entropy_identity": {
+    "max_residual": 1.9539925233402755e-14,
+    "mean_residual": 6.52811138479592e-15,
+    "passed": true
+  },
+  "temperature": {
+    "T_b_always_positive": true,
+    "T_c_always_positive": true,
+    "T_b_always_gt_T_c": true
+  },
+  "dDelta_dM_identity": {
+    "max_rel_error": 1.3268748935146687e-10,
+    "passed": true
+  },
+  "carnot_relation": {
+    "max_rel_error": 0.0002035624322063359,
+    "passed": true
+  },
+  "mass_range": {
+    "M_Nariai": 0.3333333333333333,
+    "all_in_range": true,
+    "M_min": 0.01713977530509476,
+    "M_max": 0.33328232058866525
+  },
+  "eisenstein_constraint": {
+    "max_residual": 6.217248937900877e-15,
+    "passed": true
+  },
+  "j_invariant": {
+    "at_small_M_exact": 1728.011652391305,
+    "at_small_M_formula": 1728.0116523913055,
+    "residual": 4.547473508864641e-13,
+    "approaches_1728": true
+  },
+  "all_passed": true
+}

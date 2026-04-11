@@ -1,0 +1,62 @@
+{
+  "description": "Spectral dimension of recursive horizon orbits",
+  "reference_d_s_expected": 1.0,
+  "results": [
+    {
+      "case": "reference_arc",
+      "d_s": 0.29122824065942027,
+      "d_s_std": 0.0208816632995921,
+      "n_zero_modes": 1
+    },
+    {
+      "case": "symmetric_lam2",
+      "d_s": 0.30012725922517985,
+      "d_s_std": 0.02217630488662034,
+      "n_zero_modes": 1
+    },
+    {
+      "case": "coupled_lam15_eps01",
+      "d_s": 0.2995794202057727,
+      "d_s_std": 0.02211826361348766,
+      "n_zero_modes": 1
+    },
+    {
+      "case": "coupled_lam20_eps03",
+      "d_s": 0.29451696902613195,
+      "d_s_std": 0.02139994398772456,
+      "n_zero_modes": 1
+    },
+    {
+      "case": "coupled_lam07_eps02",
+      "d_s": 0.29985968721149386,
+      "d_s_std": 0.022158272947621495,
+      "n_zero_modes": 1
+    }
+  ],
+  "multiscale_case3": [
+    {
+      "t_min": 0.05,
+      "t_max": 0.3,
+      "d_s": 0.2634132912273212
+    },
+    {
+      "t_min": 0.3,
+      "t_max": 1.0,
+      "d_s": 1.0642047806452695
+    },
+    {
+      "t_min": 1.0,
+      "t_max": 5.0,
+      "d_s": 2.689454479165156
+    },
+    {
+      "t_min": 5.0,
+      "t_max": 20.0,
+      "d_s": 1.181455304303911
+    }
+  ],
+  "verdict": {
+    "any_significant_deviation": true,
+    "interpretation": "If no significant deviation from d_s=1: the recursive dynamics does not generate non-trivial spectral geometry. The orbit is always effectively 1-dimensional, as expected for points on a curve."
+  }
+}

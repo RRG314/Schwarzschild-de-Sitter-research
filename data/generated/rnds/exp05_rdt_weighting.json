@@ -1,0 +1,114 @@
+{
+  "description": "RDT weighting and entropy conservation diagnostics",
+  "S_Lambda_exact": 9.42477796076938,
+  "results": {
+    "coupled_mild": {
+      "lambda": 1.5,
+      "eps": 0.1,
+      "x0": 0.3,
+      "x_uniform": 0.17456685068374475,
+      "x_rdt": 0.1744350193622324,
+      "x_terminal": 0.1744350193622324,
+      "Delta_uniform": 1.365230564012095,
+      "Delta_rdt": 1.3644803419303688,
+      "eta_uniform": 0.718639778269726,
+      "eta_rdt": 0.7188034400533923,
+      "rdt_entropy": {
+        "S_b_rdt": 0.2380131548640093,
+        "S_c_rdt": 7.8222844639749995,
+        "Delta_rdt": 1.3644803419303686,
+        "A_rdt": 8.060297618839009
+      },
+      "S_Lambda_conservation": {
+        "passed": true,
+        "S_Lambda_mean": 9.424777960769376,
+        "S_Lambda_std": 1.801337854298192e-15,
+        "S_Lambda_rel_std": 1.911278824600705e-16,
+        "note": "S_Lambda conservation test (should be ~0 since map normalizes to ellipse)"
+      },
+      "x_variance_converging": true,
+      "x_variance_ratio": 0.0,
+      "x_stratum_variances": [
+        5.081267428631584e-05,
+        7.703719777548943e-34,
+        7.703719777548943e-34,
+        7.703719777548943e-34,
+        0.0
+      ]
+    },
+    "coupled_strong": {
+      "lambda": 2.0,
+      "eps": 0.3,
+      "x0": 0.3,
+      "x_uniform": 0.9949462268606785,
+      "x_rdt": 0.999999,
+      "x_terminal": 0.9999990000000001,
+      "Delta_uniform": 3.1395140511100252,
+      "Delta_rdt": 3.141592653588746,
+      "eta_uniform": 0.003566909852576364,
+      "eta_rdt": 6.666667777303812e-07,
+      "rdt_entropy": {
+        "S_b_rdt": 3.141589511996093,
+        "S_c_rdt": 3.1415957951845415,
+        "Delta_rdt": 3.1415926535887464,
+        "A_rdt": 6.283185307180634
+      },
+      "S_Lambda_conservation": {
+        "passed": true,
+        "S_Lambda_mean": 9.424777960769376,
+        "S_Lambda_std": 3.4497058053802197e-15,
+        "S_Lambda_rel_std": 3.6602515409271336e-16,
+        "note": "S_Lambda conservation test (should be ~0 since map normalizes to ellipse)"
+      },
+      "x_variance_converging": true,
+      "x_variance_ratio": 8.592237181535905e-30,
+      "x_stratum_variances": [
+        0.005738180352174582,
+        4.930380657631324e-32,
+        4.930380657631324e-32,
+        4.930380657631324e-32,
+        4.930380657631324e-32
+      ]
+    },
+    "coupled_sub": {
+      "lambda": 0.7,
+      "eps": 0.2,
+      "x0": 0.6,
+      "x_uniform": 0.9997356006272968,
+      "x_rdt": 0.999999,
+      "x_terminal": 0.9999990000000001,
+      "Delta_uniform": 3.1414840938020037,
+      "Delta_rdt": 3.141592653588746,
+      "eta_uniform": 0.00018665856995964285,
+      "eta_rdt": 6.666667777303812e-07,
+      "rdt_entropy": {
+        "S_b_rdt": 3.141589511996093,
+        "S_c_rdt": 3.1415957951845415,
+        "Delta_rdt": 3.1415926535887464,
+        "A_rdt": 6.283185307180634
+      },
+      "S_Lambda_conservation": {
+        "passed": true,
+        "S_Lambda_mean": 9.424777960769376,
+        "S_Lambda_std": 3.5479751456095795e-15,
+        "S_Lambda_rel_std": 3.764518549273013e-16,
+        "note": "S_Lambda conservation test (should be ~0 since map normalizes to ellipse)"
+      },
+      "x_variance_converging": true,
+      "x_variance_ratio": 1.3827613548373548e-28,
+      "x_stratum_variances": [
+        0.00035656048965956616,
+        4.930380657631324e-32,
+        4.930380657631324e-32,
+        4.930380657631324e-32,
+        4.930380657631324e-32
+      ]
+    },
+    "conservation_stress_test": {
+      "S_Lambda_exact": 9.42477796076938,
+      "max_abs_deviation": 7.105427357601002e-15,
+      "max_rel_deviation": 7.539092578283892e-16,
+      "conservation_holds": true
+    }
+  }
+}

@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4D Schwarzschild–de Sitter Explorer</title>
+    <style>
+        :root {
+            --bg-primary: #0a0e1a;
+            --bg-secondary: #111827;
+            --border-color: #1f2937;
+            --accent-primary: #60a5fa;
+            --accent-warm: #f59e0b;
+            --accent-cool: #34d399;
+            --accent-purple: #a78bfa;
+            --text-primary: #f1f5f9;
+            --text-muted: #94a3b8;
+            --green-check: #10b981;
+            --red-error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            gap: 20px;
+            padding: 20px;
+            min-height: 100vh;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .left-panel {
+            position: sticky;
+            top: 20px;
+            height: fit-content;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow-y: auto;
+            max-height: calc(100vh - 40px);
+        }
+
+        .panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .panel-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--accent-primary);
+        }
+
+        .panel-subtitle {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        /* Controls */
+        .control-group {
+            margin-bottom: 16px;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: var(--border-color);
+            outline: none;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+        }
+
+        input[type="range"]::-moz-range-thumb {
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: var(--accent-primary);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            width: 100%;
+            padding: 8px 12px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            font-size: 13px;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.1);
+        }
+
+        .input-display {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 13px;
+            color: var(--accent-primary);
+            text-align: center;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .radio-btn {
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .radio-btn input {
+            display: none;
+        }
+
+        .radio-btn label {
+            display: block;
+            padding: 8px 12px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .radio-btn input:checked + label {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+
+        .mode-toggle {
+            display: flex;
+            gap: 8px;
+        }
+
+        .toggle-btn {
+            flex: 1;
+            padding: 10px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .toggle-btn.active {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        .preset-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .preset-btn {
+            padding: 10px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .preset-btn:hover {
+            background-color: var(--accent-primary);
+            border-color: var(--accent-primary);
+            color: var(--bg-primary);
+        }
+
+        .button {
+            padding: 10px 16px;
+            background-color: var(--accent-primary);
+            border: none;
+            border-radius: 4px;
+            color: var(--bg-primary);
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+            width: 100%;
+        }
+
+        .button:hover {
+            background-color: #3b82f6;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        .button-small {
+            padding: 6px 12px;
+            font-size: 12px;
+        }
+
+        /* Info boxes */
+        .info-box {
+            background-color: var(--bg-primary);
+            border-left: 3px solid var(--accent-primary);
+            padding: 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        .info-value {
+            font-family: 'Monaco', 'Menlo', monospace;
+            color: var(--accent-primary);
+            font-weight: 600;
+        }
+
+        /* SVG styling */
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .svg-container {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+
+        /* Grid layouts */
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .stat-box {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 12px;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent-primary);
+            font-family: 'Monaco', 'Menlo', monospace;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Collapsible sections */
+        .collapsible {
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 600;
+        }
+
+        .collapsible:last-child {
+            border-bottom: none;
+        }
+
+        .collapsible-content {
+            display: none;
+            padding: 12px 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: var(--text-muted);
+        }
+
+        .collapsible.active .collapsible-content {
+            display: block;
+        }
+
+        .collapsible-arrow {
+            transition: transform 0.2s;
+        }
+
+        .collapsible.active .collapsible-arrow {
+            transform: rotate(90deg);
+        }
+
+        /* Validation panel */
+        .validation-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+        }
+
+        .validation-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px;
+            background-color: var(--bg-primary);
+            border-radius: 4px;
+            font-size: 12px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        .validation-check {
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .validation-check.pass {
+            color: var(--green-check);
+        }
+
+        .validation-check.fail {
+            color: var(--red-error);
+        }
+
+        .validation-value {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+
+        /* Comparison table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+            margin-top: 12px;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .comparison-table th {
+            background-color: var(--bg-primary);
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .comparison-table td {
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        .diff-positive {
+            color: var(--accent-cool);
+        }
+
+        .diff-negative {
+            color: var(--red-error);
+        }
+
+        /* Entropy bar */
+        .entropy-bar {
+            display: flex;
+            height: 40px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 12px;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .entropy-segment {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            transition: flex 0.3s ease;
+            position: relative;
+        }
+
+        .entropy-segment.sb {
+            background-color: var(--accent-warm);
+            color: #1f2937;
+        }
+
+        .entropy-segment.delta {
+            background-color: var(--accent-purple);
+            color: #1f2937;
+        }
+
+        .entropy-segment.sc {
+            background-color: var(--accent-cool);
+            color: #1f2937;
+        }
+
+        .entropy-label {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 8px;
+            margin-top: 12px;
+            font-size: 12px;
+        }
+
+        .entropy-label-row {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Hero panel */
+        .hero-subtitle {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .hero-description {
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* Formula display */
+        .formula-section {
+            background-color: var(--bg-primary);
+            border-left: 3px solid var(--accent-primary);
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 12px;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .formula-title {
+            font-weight: 600;
+            color: var(--accent-primary);
+            margin-bottom: 8px;
+        }
+
+        .values-table {
+            width: 100%;
+            font-size: 12px;
+            border-collapse: collapse;
+            margin-top: 12px;
+        }
+
+        .values-table td {
+            padding: 8px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .values-table td:first-child {
+            font-weight: 600;
+            color: var(--accent-primary);
+            width: 40%;
+        }
+
+        .values-table td:last-child {
+            text-align: right;
+            font-family: 'Monaco', 'Menlo', monospace;
+            color: var(--text-primary);
+        }
+
+        .copy-button {
+            padding: 8px 12px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 12px;
+            margin-top: 12px;
+            transition: all 0.2s;
+        }
+
+        .copy-button:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .left-panel {
+                position: relative;
+                top: auto;
+            }
+
+            .grid-2col {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .updating {
+            animation: pulse 0.3s ease-out;
+        }
+
+        /* Hover tooltips */
+        .tooltip-trigger {
+            position: relative;
+            cursor: help;
+            border-bottom: 1px dotted var(--accent-primary);
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--accent-primary);
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            white-space: nowrap;
+            bottom: 120%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            color: var(--accent-primary);
+        }
+
+        .tooltip::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 6px solid transparent;
+            border-top-color: var(--accent-primary);
+        }
+
+        .tooltip-trigger:hover .tooltip {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Radial diagram */
+        .radial-diagram-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 12px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+
+        .radial-label {
+            text-align: center;
+            flex: 1;
+        }
+
+        .radial-label-title {
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        .radial-label-value {
+            color: var(--text-muted);
+            font-size: 11px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- LEFT PANEL: Controls -->
+        <div class="left-panel">
+            <!-- Hero Section -->
+            <div class="panel">
+                <div class="panel-title">4D Schwarzschild–de Sitter</div>
+                <div class="hero-subtitle">Explorer</div>
+                <div class="hero-description">
+                    An exact interactive map of the thermodynamic family at fixed Λ.
+                </div>
+                <div class="info-box">
+                    <strong>Move the slider</strong> below to explore the entire 1-parameter family of SdS spacetimes.
+                </div>
+            </div>
+
+            <!-- Main Controls -->
+            <div class="panel">
+                <div class="panel-title">Controls</div>
+
+                <!-- X Slider -->
+                <div class="control-group">
+                    <div class="control-label">Parameter x</div>
+                    <input type="range" id="xSlider" min="0.01" max="0.99" step="0.001" value="0.45">
+                    <div class="input-display" id="xDisplay">0.450</div>
+                </div>
+
+                <!-- Input Mode Selection -->
+                <div class="control-group">
+                    <div class="control-label">Input Mode</div>
+                    <div class="radio-group">
+                        <div class="radio-btn">
+                            <input type="radio" id="modeX" name="inputMode" value="x" checked>
+                            <label for="modeX">By x</label>
+                        </div>
+                        <div class="radio-btn">
+                            <input type="radio" id="modeM" name="inputMode" value="M">
+                            <label for="modeM">By M</label>
+                        </div>
+                        <div class="radio-btn">
+                            <input type="radio" id="modeDelta" name="inputMode" value="delta">
+                            <label for="modeDelta">By Δ/S_Λ</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative input fields (hidden by default) -->
+                <div class="control-group" id="modeInputGroup" style="display: none;">
+                    <div class="control-label" id="altInputLabel">Mass M</div>
+                    <input type="number" id="altInput" min="0.01" max="1" step="0.001" value="0.1">
+                    <div class="panel-subtitle" id="altInputHint" style="margin-top: 8px;"></div>
+                </div>
+
+                <!-- Lambda Input -->
+                <div class="control-group">
+                    <div class="control-label">Cosmological Constant Λ</div>
+                    <input type="number" id="lambdaInput" min="0.01" max="10" step="0.1" value="1.0">
+                    <div class="info-box" style="margin-top: 8px; font-size: 11px;">
+                        r_Λ = <span id="rLambdaDisplay" class="info-value">1.732</span>
+                        <br>M_Nariai = <span id="mNaraiDisplay" class="info-value">0.193</span>
+                    </div>
+                </div>
+
+                <!-- Preset Buttons -->
+                <div class="control-group">
+                    <div class="control-label">Presets</div>
+                    <div class="preset-buttons">
+                        <button class="preset-btn" onclick="app.setPreset(0.01)">Pure dS</button>
+                        <button class="preset-btn" onclick="app.setPreset(0.45)">Midpoint</button>
+                        <button class="preset-btn" onclick="app.setPreset(0.95)">Nariai</button>
+                        <button class="preset-btn" onclick="app.setPreset(0.25)">x = 0.25</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mode Toggle -->
+            <div class="panel">
+                <div class="control-label">Display Mode</div>
+                <div class="mode-toggle">
+                    <button class="toggle-btn active" id="toggleBeginner" onclick="app.setMode('beginner')">Beginner</button>
+                    <button class="toggle-btn" id="toggleTechnical" onclick="app.setMode('technical')">Technical</button>
+                </div>
+            </div>
+
+            <!-- Compare Mode -->
+            <div class="panel">
+                <div class="panel-title">Compare States</div>
+                <button class="button button-small" onclick="app.pinStateA()">Pin as State A</button>
+                <button class="button button-small" onclick="app.pinStateB()" style="margin-top: 8px;">Pin as State B</button>
+                <div class="info-box" style="margin-top: 12px; font-size: 11px;">
+                    <strong id="compareInfo">No states pinned</strong>
+                </div>
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: Visualizations -->
+        <div class="right-panel">
+            <!-- Panel 1: Plain English Intro -->
+            <div class="panel">
+                <div class="panel-title">Understanding the Explorer</div>
+                <div class="panel-subtitle">
+                    Schwarzschild–de Sitter (SdS) spacetime describes a universe with both a black hole and a cosmological constant (like dark energy). For any fixed value of Λ, the entire family of valid spacetimes is parameterized by a single number: the ratio <strong>x = r_b/r_c</strong>, where r_b is the black hole horizon radius and r_c is the cosmological horizon radius.
+                </div>
+                <div class="panel-subtitle">
+                    Moving the slider above moves you through this entire family — from nearly pure empty space (x→0) to the Nariai limit where the two horizons merge (x→1).
+                </div>
+                <div class="panel-subtitle">
+                    <strong>How to read this:</strong> Each visualization updates instantly as you move the slider. The Radial Diagram shows the physical structure of spacetime. The Entropy Budget shows how the total de Sitter entropy is split. The Eisenstein Arc is a geometric identity: the moving point always stays on the arc. The Thermodynamics Panel shows the temperatures of each horizon.
+                </div>
+            </div>
+
+            <!-- Panel 2: Radial Diagram -->
+            <div class="panel">
+                <div class="panel-title">Radial Static Patch Diagram</div>
+                <div class="panel-subtitle">
+                    This strip shows the structure of the static region from the black hole horizon (r_b) to the cosmological horizon (r_c), normalized to the de Sitter length scale r_Λ.
+                </div>
+                <div class="svg-container">
+                    <svg id="radialDiagram" viewBox="0 0 600 140" style="max-width: 100%; height: auto;">
+                        <!-- Placeholder: will be rendered by JS -->
+                    </svg>
+                </div>
+                <div class="radial-diagram-labels">
+                    <div class="radial-label">
+                        <div class="radial-label-title">r_b</div>
+                        <div class="radial-label-value" id="rbLabel">0.000</div>
+                    </div>
+                    <div class="radial-label">
+                        <div class="radial-label-title">r_c</div>
+                        <div class="radial-label-value" id="rcLabel">0.000</div>
+                    </div>
+                    <div class="radial-label">
+                        <div class="radial-label-title">r_Λ</div>
+                        <div class="radial-label-value" id="rLambdaLabel">0.000</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Panel 3: Entropy Budget -->
+            <div class="panel">
+                <div class="panel-title">Entropy Budget</div>
+                <div class="panel-subtitle">
+                    The de Sitter entropy S_Λ is partitioned into three contributions. Note the "entropy deficit" Δ, which emerges from the thermodynamic interaction between the two horizons.
+                </div>
+                <div class="entropy-bar" id="entropyBar"></div>
+                <div class="entropy-label">
+                    <div class="entropy-label-row">
+                        <span style="color: var(--accent-warm);">■ S_b (Black Hole)</span>
+                        <span id="sbPercent">00.0%</span>
+                    </div>
+                    <div class="entropy-label-row">
+                        <span style="color: var(--accent-purple);">■ Δ (Entropy Deficit)</span>
+                        <span id="deltaPercent">00.0%</span>
+                    </div>
+                    <div class="entropy-label-row">
+                        <span style="color: var(--accent-cool);">■ S_c (Cosmological)</span>
+                        <span id="scPercent">00.0%</span>
+                    </div>
+                </div>
+                <div class="formula-section" id="entropyFormula" style="display: none;">
+                    <div class="formula-title">Formula:</div>
+                    <div style="margin-bottom: 6px;">S_b/S_Λ = x²/(x²+x+1)</div>
+                    <div style="margin-bottom: 6px;">S_c/S_Λ = 1/(x²+x+1)</div>
+                    <div>Δ/S_Λ = x/(x²+x+1)</div>
+                </div>
+                <div class="info-box" style="margin-top: 12px;">
+                    <strong>Identity:</strong> S_Λ = S_b + Δ + S_c
+                </div>
+            </div>
+
+            <!-- Panel 4: Eisenstein Arc -->
+            <div class="panel">
+                <div class="panel-title">Eisenstein Constraint (u² + uv + v² = 1)</div>
+                <div class="panel-subtitle">
+                    The (u, v) point traces out a specific arc in the first quadrant as x varies from 0 to 1. This is a geometric identity: every valid SdS spacetime lies on this curve.
+                </div>
+                <div class="svg-container">
+                    <svg id="eisensteinPlot" viewBox="0 0 320 320" style="max-width: 100%; aspect-ratio: 1;">
+                        <!-- Placeholder: will be rendered by JS -->
+                    </svg>
+                </div>
+                <div class="grid-2col" style="margin-top: 12px;">
+                    <div class="stat-box">
+                        <div class="stat-value" id="uValue">0.000</div>
+                        <div class="stat-label">u = √(S_b/S_Λ)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="vValue">1.000</div>
+                        <div class="stat-label">v = √(S_c/S_Λ)</div>
+                    </div>
+                </div>
+                <div class="formula-section" id="eisensteinFormula" style="display: none;">
+                    <div class="formula-title">Parametrization:</div>
+                    <div style="margin-bottom: 6px;">u = x / √(x² + x + 1)</div>
+                    <div>v = 1 / √(x² + x + 1)</div>
+                </div>
+            </div>
+
+            <!-- Panel 5: Thermodynamics -->
+            <div class="panel">
+                <div class="panel-title">Thermodynamic Properties</div>
+                <div class="panel-subtitle">
+                    Black holes and cosmological horizons have different temperatures. Their ratio depends on x, and the Carnot efficiency characterizes the theoretical maximum work extractable.
+                </div>
+
+                <div class="grid-2col">
+                    <div class="stat-box">
+                        <div class="stat-value" id="tbValue">0.000</div>
+                        <div class="stat-label">T_b (Black Hole)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="tcValue">0.000</div>
+                        <div class="stat-label">T_c (Cosmological)</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="ratioValue">0.000</div>
+                        <div class="stat-label">T_c / T_b</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="etaValue">0.0%</div>
+                        <div class="stat-label">Carnot Efficiency</div>
+                    </div>
+                </div>
+
+                <div class="formula-section" id="thermFormula" style="display: none;">
+                    <div class="formula-title">Formulas:</div>
+                    <div style="margin-bottom: 6px;">T_b = (1 - Λr_b²) / (4πr_b)</div>
+                    <div style="margin-bottom: 6px;">T_c = (Λr_c² - 1) / (4πr_c)</div>
+                    <div style="margin-bottom: 6px;">T_c/T_b = x(x+2) / (1+2x)</div>
+                    <div>η_C = (1 - x²) / (1 + 2x)</div>
+                </div>
+            </div>
+
+            <!-- Panel 6: Values Table -->
+            <div class="panel">
+                <div class="panel-title">Complete State Data</div>
+                <table class="values-table">
+                    <tr>
+                        <td>x</td>
+                        <td id="val-x">0.000</td>
+                    </tr>
+                    <tr>
+                        <td>Λ</td>
+                        <td id="val-lambda">1.000</td>
+                    </tr>
+                    <tr>
+                        <td>r_b</td>
+                        <td id="val-rb">0.000</td>
+                    </tr>
+                    <tr>
+                        <td>r_c</td>
+                        <td id="val-rc">0.000</td>
+                    </tr>
+                    <tr>
+                        <td>r_Λ</td>
+                        <td id="val-rLambda">1.732</td>
+                    </tr>
+                    <tr>
+                        <td>M</td>
+                        <td id="val-M">0.000</td>
+                    </tr>
+                    <tr>
+                        <td>S_b / S_Λ</td>
+                        <td id="val-fb">0.0%</td>
+                    </tr>
+                    <tr>
+                        <td>S_c / S_Λ</td>
+                        <td id="val-fc">100.0%</td>
+                    </tr>
+                    <tr>
+                        <td>Δ / S_Λ</td>
+                        <td id="val-fDelta">0.0%</td>
+                    </tr>
+                    <tr>
+                        <td>T_b</td>
+                        <td id="val-Tb">0.000</td>
+                    </tr>
+                    <tr>
+                        <td>T_c</td>
+                        <td id="val-Tc">0.000</td>
+                    </tr>
+                    <tr>
+                        <td>η_C</td>
+                        <td id="val-eta">0.0%</td>
+                    </tr>
+                </table>
+                <button class="copy-button" onclick="app.copyTable()">Copy All Values</button>
+            </div>
+
+            <!-- Panel 7: Comparison Mode -->
+            <div class="panel" id="comparePanel" style="display: none;">
+                <div class="panel-title">State Comparison</div>
+                <div class="panel-subtitle">
+                    A and B are pinned; C is the current slider position.
+                </div>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Quantity</th>
+                            <th>State A</th>
+                            <th>State B</th>
+                            <th>Difference</th>
+                        </tr>
+                    </thead>
+                    <tbody id="compareTableBody">
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Panel 8: Limits & Interpretation -->
+            <div class="panel">
+                <div class="panel-title">Limits & Interpretation</div>
+
+                <div class="collapsible" onclick="this.classList.toggle('active')">
+                    <span>Pure de Sitter Limit (x → 0)</span>
+                    <span class="collapsible-arrow">▶</span>
+                    <div class="collapsible-content">
+                        <p>
+                            As x → 0, the black hole shrinks to nothing. The static region becomes the entire spacetime. The de Sitter entropy S_Λ approaches the full entropy, while S_b → 0. The black hole temperature T_b formally diverges (this is the Hawking temperature of a minimal black hole), while T_c → 0. The spacetime approaches pure de Sitter space with no black hole.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="collapsible" onclick="this.classList.toggle('active')">
+                    <span>Small Black Hole Regime (x ≪ 1)</span>
+                    <span class="collapsible-arrow">▶</span>
+                    <div class="collapsible-content">
+                        <p>
+                            In this regime, the dominant contribution to the entropy budget is the cosmological entropy S_c. The black hole entropy S_b is negligible, and the entropy deficit Δ is also small. The black hole is much hotter than the cosmological horizon, leading to a large Carnot efficiency. This is the regime most relevant to our actual universe (small black holes in an expanding cosmos).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="collapsible" onclick="this.classList.toggle('active')">
+                    <span>Nariai Limit (x → 1)</span>
+                    <span class="collapsible-arrow">▶</span>
+                    <div class="collapsible-content">
+                        <p>
+                            At x = 1, the two horizons merge into a single surface at r = 1/√Λ. Both temperatures approach zero: T_b → 0⁺ and T_c → 0⁻. The mass reaches M_Nariai = 1/(3√Λ). The entropy deficit Δ reaches its maximum: Δ/S_Λ → 1/3. The black hole and cosmological entropies are equal: S_b = S_c = S_Λ/3. The Carnot efficiency vanishes.
+                        </p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 16px; padding: 12px; background-color: var(--bg-primary); border-left: 3px solid var(--accent-warm); border-radius: 4px; font-size: 12px; line-height: 1.6;">
+                    <strong>⚠ Important:</strong> The slider shows different spacetimes in the SdS family at fixed Λ. It is NOT showing time evolution. Each point on the slider is a distinct physical spacetime.
+                </div>
+            </div>
+
+            <!-- Panel 9: Validation & Sanity Check -->
+            <div class="panel">
+                <div class="panel-title">Validation & Sanity Check</div>
+                <div class="panel-subtitle">
+                    All computed quantities should satisfy exact algebraic identities. Below are the residuals (should all be near machine precision zero).
+                </div>
+
+                <div class="validation-grid">
+                    <div class="validation-row">
+                        <span>Eisenstein Constraint</span>
+                        <span>
+                            <span class="validation-check pass" id="check-eisenstein">✓</span>
+                            <span class="validation-value" id="val-eisenstein">0.0e-15</span>
+                        </span>
+                    </div>
+                    <div class="validation-row">
+                        <span>Entropy Sum</span>
+                        <span>
+                            <span class="validation-check pass" id="check-entropy">✓</span>
+                            <span class="validation-value" id="val-entropy">0.0e-15</span>
+                        </span>
+                    </div>
+                    <div class="validation-row">
+                        <span>Arc Identity</span>
+                        <span>
+                            <span class="validation-check pass" id="check-arc">✓</span>
+                            <span class="validation-value" id="val-arc">0.0e-15</span>
+                        </span>
+                    </div>
+                    <div class="validation-row">
+                        <span>Temperature Ratio</span>
+                        <span>
+                            <span class="validation-check pass" id="check-ratio">✓</span>
+                            <span class="validation-value" id="val-ratio">0.0e-15</span>
+                        </span>
+                    </div>
+                    <div class="validation-row">
+                        <span>M > 0</span>
+                        <span>
+                            <span class="validation-check pass" id="check-M">✓</span>
+                        </span>
+                    </div>
+                    <div class="validation-row">
+                        <span>Sub-extremal (9Λ M² < 1)</span>
+                        <span>
+                            <span class="validation-check pass" id="check-subext">✓</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== MATHEMATICAL ENGINE ====================
+
+        function computeState(x, lambda) {
+            const PI = Math.PI;
+            const denom = x * x + x + 1;
+            const r_lambda = Math.sqrt(3 / lambda);
+            const r_c = r_lambda / Math.sqrt(denom);
+            const r_b = x * r_c;
+            const M = (r_b / 2) * (1 - lambda * r_b * r_b / 3);
+
+            const S_lambda = 3 * PI / lambda;
+            const S_b = PI * r_b * r_b;
+            const S_c = PI * r_c * r_c;
+            const Delta = PI * r_b * r_c;
+
+            const fb = (x * x) / denom;
+            const fc = 1 / denom;
+            const fDelta = x / denom;
+
+            const u = x / Math.sqrt(denom);
+            const v = 1 / Math.sqrt(denom);
+
+            const T_b = (1 - lambda * r_b * r_b) / (4 * PI * r_b);
+            const T_c = (lambda * r_c * r_c - 1) / (4 * PI * r_c);
+            const T_ratio = (x * (x + 2)) / (1 + 2 * x);
+            const eta_C = (1 - x * x) / (1 + 2 * x);
+
+            const residual_eisenstein = r_b * r_b + r_b * r_c + r_c * r_c - 3 / lambda;
+            const residual_entropy = S_lambda - S_b - S_c - Delta;
+            const residual_arc = u * u + u * v + v * v - 1;
+            const residual_ratio = T_ratio - (T_c / T_b);
+
+            return {
+                x, lambda, r_lambda, r_c, r_b, M,
+                S_lambda, S_b, S_c, Delta,
+                fb, fc, fDelta, u, v,
+                T_b, T_c, T_ratio, eta_C,
+                residual_eisenstein, residual_entropy, residual_arc, residual_ratio
+            };
+        }
+
+        function computeStateFromMass(lambda, M) {
+            const M_nariai = 1 / (3 * Math.sqrt(lambda));
+            if (M <= 0 || M >= M_nariai) return null;
+
+            const r_b_max = 1 / Math.sqrt(lambda);
+            let lo = 1e-10, hi = r_b_max * 0.9999;
+
+            for (let i = 0; i < 60; i++) {
+                const mid = (lo + hi) / 2;
+                const M_mid = (mid / 2) * (1 - lambda * mid * mid / 3);
+                if (M_mid < M) lo = mid;
+                else hi = mid;
+            }
+
+            const r_b = (lo + hi) / 2;
+            const disc = 12 / lambda - 3 * r_b * r_b;
+            if (disc < 0) return null;
+
+            const r_c = (-r_b + Math.sqrt(disc)) / 2;
+            if (r_c <= r_b) return null;
+
+            const x = r_b / r_c;
+            return computeState(x, lambda);
+        }
+
+        function computeStateFromNormalizedDelta(lambda, deltaFrac) {
+            const maxDelta = 1 / 3 - 1e-6;
+            if (deltaFrac <= 0 || deltaFrac >= maxDelta) return null;
+
+            const d = deltaFrac;
+            const disc = 1 - 2 * d - 3 * d * d;
+            if (disc < 0) return null;
+
+            const x = ((1 - d) - Math.sqrt(disc)) / (2 * d);
+            if (x <= 0 || x >= 1) return null;
+
+            return computeState(x, lambda);
+        }
+
+        // ==================== UI STATE ====================
+
+        const app = {
+            mode: 'beginner',
+            inputMode: 'x',
+            state: null,
+            stateA: null,
+            stateB: null,
+
+            init() {
+                this.setupEventListeners();
+                this.update();
+            },
+
+            setupEventListeners() {
+                document.getElementById('xSlider').addEventListener('input', (e) => {
+                    const x = parseFloat(e.target.value);
+                    this.updateFromX(x);
+                });
+
+                document.getElementById('lambdaInput').addEventListener('input', (e) => {
+                    const lambda = parseFloat(e.target.value) || 1;
+                    this.updateLambda(lambda);
+                });
+
+                document.querySelectorAll('input[name="inputMode"]').forEach(radio => {
+                    radio.addEventListener('change', (e) => {
+                        this.inputMode = e.target.value;
+                        this.updateInputMode();
+                    });
+                });
+
+                document.getElementById('altInput').addEventListener('input', (e) => {
+                    const val = parseFloat(e.target.value);
+                    if (this.inputMode === 'M') {
+                        this.updateFromMass(val);
+                    } else if (this.inputMode === 'delta') {
+                        this.updateFromDelta(val);
+                    }
+                });
+            },
+
+            updateInputMode() {
+                const group = document.getElementById('modeInputGroup');
+                const label = document.getElementById('altInputLabel');
+                const hint = document.getElementById('altInputHint');
+                const input = document.getElementById('altInput');
+
+                if (this.inputMode === 'x') {
+                    group.style.display = 'none';
+                } else {
+                    group.style.display = 'block';
+                    if (this.inputMode === 'M') {
+                        label.textContent = 'Mass M';
+                        hint.textContent = '0 < M < M_Nariai';
+                        input.min = '0.001';
+                        input.max = (1 / (3 * Math.sqrt(this.state.lambda))).toFixed(4);
+                    } else if (this.inputMode === 'delta') {
+                        label.textContent = 'Δ / S_Λ (normalized)';
+                        hint.textContent = '0 < Δ/S_Λ < 1/3 ≈ 0.333';
+                        input.min = '0.001';
+                        input.max = '0.333';
+                    }
+                }
+            },
+
+            updateFromX(x) {
+                const lambda = parseFloat(document.getElementById('lambdaInput').value) || 1;
+                this.state = computeState(x, lambda);
+                this.update();
+            },
+
+            updateFromMass(M) {
+                const lambda = parseFloat(document.getElementById('lambdaInput').value) || 1;
+                const newState = computeStateFromMass(lambda, M);
+                if (newState) {
+                    this.state = newState;
+                    document.getElementById('xSlider').value = newState.x;
+                    this.update();
+                }
+            },
+
+            updateFromDelta(deltaFrac) {
+                const lambda = parseFloat(document.getElementById('lambdaInput').value) || 1;
+                const newState = computeStateFromNormalizedDelta(lambda, deltaFrac);
+                if (newState) {
+                    this.state = newState;
+                    document.getElementById('xSlider').value = newState.x;
+                    this.update();
+                }
+            },
+
+            updateLambda(lambda) {
+                const x = parseFloat(document.getElementById('xSlider').value) || 0.45;
+                this.state = computeState(x, lambda);
+                this.update();
+            },
+
+            setPreset(x) {
+                document.getElementById('xSlider').value = x;
+                const lambda = parseFloat(document.getElementById('lambdaInput').value) || 1;
+                this.state = computeState(x, lambda);
+                this.update();
+            },
+
+            setMode(mode) {
+                this.mode = mode;
+                document.getElementById('toggleBeginner').classList.toggle('active', mode === 'beginner');
+                document.getElementById('toggleTechnical').classList.toggle('active', mode === 'technical');
+
+                document.getElementById('entropyFormula').style.display = mode === 'technical' ? 'block' : 'none';
+                document.getElementById('eisensteinFormula').style.display = mode === 'technical' ? 'block' : 'none';
+                document.getElementById('thermFormula').style.display = mode === 'technical' ? 'block' : 'none';
+            },
+
+            pinStateA() {
+                this.stateA = JSON.parse(JSON.stringify(this.state));
+                this.updateCompareInfo();
+                this.renderComparison();
+            },
+
+            pinStateB() {
+                this.stateB = JSON.parse(JSON.stringify(this.state));
+                this.updateCompareInfo();
+                this.renderComparison();
+            },
+
+            updateCompareInfo() {
+                const info = document.getElementById('compareInfo');
+                let text = '';
+                if (this.stateA) text += `A: x=${this.stateA.x.toFixed(3)} `;
+                if (this.stateB) text += `B: x=${this.stateB.x.toFixed(3)}`;
+                if (!this.stateA && !this.stateB) text = 'No states pinned';
+                info.textContent = text;
+                document.getElementById('comparePanel').style.display = (this.stateA && this.stateB) ? 'block' : 'none';
+            },
+
+            renderComparison() {
+                if (!this.stateA || !this.stateB) return;
+                const tbody = document.getElementById('compareTableBody');
+                tbody.innerHTML = '';
+
+                const quantities = [
+                    { name: 'x', get: s => s.x },
+                    { name: 'r_b', get: s => s.r_b },
+                    { name: 'r_c', get: s => s.r_c },
+                    { name: 'S_b/S_Λ (%)', get: s => s.fb * 100 },
+                    { name: 'S_c/S_Λ (%)', get: s => s.fc * 100 },
+                    { name: 'Δ/S_Λ (%)', get: s => s.fDelta * 100 },
+                    { name: 'T_b', get: s => s.T_b },
+                    { name: 'T_c', get: s => s.T_c },
+                    { name: 'η_C (%)', get: s => s.eta_C * 100 }
+                ];
+
+                quantities.forEach(q => {
+                    const valA = q.get(this.stateA);
+                    const valB = q.get(this.stateB);
+                    const diff = valB - valA;
+                    const className = diff > 0 ? 'diff-positive' : (diff < 0 ? 'diff-negative' : '');
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${q.name}</td>
+                        <td>${valA.toFixed(4)}</td>
+                        <td>${valB.toFixed(4)}</td>
+                        <td class="${className}">${diff >= 0 ? '+' : ''}${diff.toFixed(4)}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            },
+
+            update() {
+                if (!this.state) return;
+                this.renderControls();
+                this.renderRadialDiagram();
+                this.renderEntropyBudget();
+                this.renderEisensteinArc();
+                this.renderThermodynamics();
+                this.renderValuesTable();
+                this.renderValidation();
+                this.updateCompareInfo();
+            },
+
+            renderControls() {
+                document.getElementById('xDisplay').textContent = this.state.x.toFixed(3);
+                document.getElementById('xSlider').value = this.state.x;
+
+                const lambda = this.state.lambda;
+                const rLambda = this.state.r_lambda;
+                const mNarai = 1 / (3 * Math.sqrt(lambda));
+
+                document.getElementById('rLambdaDisplay').textContent = rLambda.toFixed(3);
+                document.getElementById('mNaraiDisplay').textContent = mNarai.toFixed(3);
+                document.getElementById('rLambdaLabel').textContent = rLambda.toFixed(3);
+
+                this.updateInputMode();
+                if (this.inputMode === 'M') {
+                    document.getElementById('altInput').value = this.state.M.toFixed(4);
+                } else if (this.inputMode === 'delta') {
+                    document.getElementById('altInput').value = this.state.fDelta.toFixed(4);
+                }
+            },
+
+            renderRadialDiagram() {
+                const svg = document.getElementById('radialDiagram');
+                svg.innerHTML = '';
+
+                const rL = this.state.r_lambda;
+                const rb = this.state.r_b;
+                const rc = this.state.r_c;
+
+                // Scale: normalize so r_lambda spans most of width
+                const scale = 480 / rL;
+                const margin = 50;
+
+                // Draw background
+                const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                bg.setAttribute('width', '600');
+                bg.setAttribute('height', '140');
+                bg.setAttribute('fill', 'var(--bg-primary)');
+                svg.appendChild(bg);
+
+                // Center point
+                const centerX = margin + 20;
+                const centerCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                centerCircle.setAttribute('cx', centerX);
+                centerCircle.setAttribute('cy', '70');
+                centerCircle.setAttribute('r', '8');
+                centerCircle.setAttribute('fill', '#666');
+                svg.appendChild(centerCircle);
+
+                // Black hole region
+                const rbX = centerX + rb * scale;
+                const rbRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                rbRect.setAttribute('x', centerX);
+                rbRect.setAttribute('y', '50');
+                rbRect.setAttribute('width', rb * scale);
+                rbRect.setAttribute('height', '40');
+                rbRect.setAttribute('fill', 'var(--accent-warm)');
+                rbRect.setAttribute('opacity', '0.6');
+                svg.appendChild(rbRect);
+
+                // Static region
+                const staticWidth = (rc - rb) * scale;
+                const staticRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                staticRect.setAttribute('x', rbX);
+                staticRect.setAttribute('y', '50');
+                staticRect.setAttribute('width', staticWidth);
+                staticRect.setAttribute('height', '40');
+                staticRect.setAttribute('fill', 'var(--border-color)');
+                staticRect.setAttribute('opacity', '0.4');
+                svg.appendChild(staticRect);
+
+                // Cosmological horizon
+                const rcX = centerX + rc * scale;
+                const rcCircle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                rcCircle.setAttribute('cx', rcX);
+                rcCircle.setAttribute('cy', '70');
+                rcCircle.setAttribute('r', '8');
+                rcCircle.setAttribute('fill', 'var(--accent-cool)');
+                svg.appendChild(rcCircle);
+
+                // r_lambda marker
+                const rLambdaX = centerX + rL * scale;
+                const rLambdaLine = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                rLambdaLine.setAttribute('x1', rLambdaX);
+                rLambdaLine.setAttribute('y1', '30');
+                rLambdaLine.setAttribute('x2', rLambdaX);
+                rLambdaLine.setAttribute('y2', '110');
+                rLambdaLine.setAttribute('stroke', 'var(--accent-primary)');
+                rLambdaLine.setAttribute('stroke-dasharray', '4,4');
+                rLambdaLine.setAttribute('opacity', '0.5');
+                svg.appendChild(rLambdaLine);
+
+                // Labels
+                const centerLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                centerLabel.setAttribute('x', centerX);
+                centerLabel.setAttribute('y', '130');
+                centerLabel.setAttribute('text-anchor', 'middle');
+                centerLabel.setAttribute('font-size', '12');
+                centerLabel.setAttribute('fill', 'var(--text-muted)');
+                centerLabel.textContent = 'Center';
+                svg.appendChild(centerLabel);
+
+                const rbLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                rbLabel.setAttribute('x', rbX);
+                rbLabel.setAttribute('y', '20');
+                rbLabel.setAttribute('text-anchor', 'middle');
+                rbLabel.setAttribute('font-size', '11');
+                rbLabel.setAttribute('fill', 'var(--accent-warm)');
+                rbLabel.textContent = 'BH';
+                svg.appendChild(rbLabel);
+
+                const rcLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                rcLabel.setAttribute('x', rcX);
+                rcLabel.setAttribute('y', '20');
+                rcLabel.setAttribute('text-anchor', 'middle');
+                rcLabel.setAttribute('font-size', '11');
+                rcLabel.setAttribute('fill', 'var(--accent-cool)');
+                rcLabel.textContent = 'Cosm.';
+                svg.appendChild(rcLabel);
+
+                document.getElementById('rbLabel').textContent = rb.toFixed(3);
+                document.getElementById('rcLabel').textContent = rc.toFixed(3);
+            },
+
+            renderEntropyBudget() {
+                const fb = this.state.fb * 100;
+                const fc = this.state.fc * 100;
+                const fDelta = this.state.fDelta * 100;
+
+                const bar = document.getElementById('entropyBar');
+                bar.innerHTML = '';
+
+                const sbSeg = document.createElement('div');
+                sbSeg.className = 'entropy-segment sb';
+                sbSeg.style.flex = this.state.fb;
+                sbSeg.textContent = fb > 5 ? `${fb.toFixed(1)}%` : '';
+                bar.appendChild(sbSeg);
+
+                const deltaSeg = document.createElement('div');
+                deltaSeg.className = 'entropy-segment delta';
+                deltaSeg.style.flex = this.state.fDelta;
+                deltaSeg.textContent = fDelta > 5 ? `${fDelta.toFixed(1)}%` : '';
+                bar.appendChild(deltaSeg);
+
+                const scSeg = document.createElement('div');
+                scSeg.className = 'entropy-segment sc';
+                scSeg.style.flex = this.state.fc;
+                scSeg.textContent = fc > 5 ? `${fc.toFixed(1)}%` : '';
+                bar.appendChild(scSeg);
+
+                document.getElementById('sbPercent').textContent = fb.toFixed(1) + '%';
+                document.getElementById('deltaPercent').textContent = fDelta.toFixed(1) + '%';
+                document.getElementById('scPercent').textContent = fc.toFixed(1) + '%';
+            },
+
+            renderEisensteinArc() {
+                const svg = document.getElementById('eisensteinPlot');
+                svg.innerHTML = '';
+
+                // Background
+                const bg = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+                bg.setAttribute('width', '320');
+                bg.setAttribute('height', '320');
+                bg.setAttribute('fill', 'var(--bg-primary)');
+                svg.appendChild(bg);
+
+                // Axes
+                const axisX = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                axisX.setAttribute('x1', '40');
+                axisX.setAttribute('y1', '280');
+                axisX.setAttribute('x2', '280');
+                axisX.setAttribute('y2', '280');
+                axisX.setAttribute('stroke', 'var(--border-color)');
+                axisX.setAttribute('stroke-width', '1');
+                svg.appendChild(axisX);
+
+                const axisY = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+                axisY.setAttribute('x1', '40');
+                axisY.setAttribute('y1', '40');
+                axisY.setAttribute('x2', '40');
+                axisY.setAttribute('y2', '280');
+                axisY.setAttribute('stroke', 'var(--border-color)');
+                axisY.setAttribute('stroke-width', '1');
+                svg.appendChild(axisY);
+
+                // Scale: 240x240 pixels for u,v in [0,1]
+                const scale = 240;
+                const offsetX = 40;
+                const offsetY = 280;
+
+                // Arc path: sample x from 0.001 to 0.999
+                let pathData = '';
+                for (let xi = 0.001; xi <= 0.999; xi += 0.01) {
+                    const denom = xi * xi + xi + 1;
+                    const u = xi / Math.sqrt(denom);
+                    const v = 1 / Math.sqrt(denom);
+                    const px = offsetX + u * scale;
+                    const py = offsetY - v * scale;
+                    pathData += (xi === 0.001 ? 'M' : 'L') + px + ' ' + py;
+                }
+
+                const arc = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                arc.setAttribute('d', pathData);
+                arc.setAttribute('stroke', 'var(--accent-primary)');
+                arc.setAttribute('stroke-width', '2');
+                arc.setAttribute('fill', 'none');
+                arc.setAttribute('opacity', '0.7');
+                svg.appendChild(arc);
+
+                // Current point
+                const denom = this.state.x * this.state.x + this.state.x + 1;
+                const u = this.state.x / Math.sqrt(denom);
+                const v = 1 / Math.sqrt(denom);
+                const px = offsetX + u * scale;
+                const py = offsetY - v * scale;
+
+                const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+                dot.setAttribute('cx', px);
+                dot.setAttribute('cy', py);
+                dot.setAttribute('r', '6');
+                dot.setAttribute('fill', 'var(--accent-primary)');
+                dot.setAttribute('stroke', 'white');
+                dot.setAttribute('stroke-width', '2');
+                svg.appendChild(dot);
+
+                // Axis labels
+                const labelU = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                labelU.setAttribute('x', '280');
+                labelU.setAttribute('y', '300');
+                labelU.setAttribute('font-size', '11');
+                labelU.setAttribute('fill', 'var(--text-muted)');
+                labelU.textContent = 'u';
+                svg.appendChild(labelU);
+
+                const labelV = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                labelV.setAttribute('x', '20');
+                labelV.setAttribute('y', '50');
+                labelV.setAttribute('font-size', '11');
+                labelV.setAttribute('fill', 'var(--text-muted)');
+                labelV.textContent = 'v';
+                svg.appendChild(labelV);
+
+                // End labels
+                const labelDeS = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                labelDeS.setAttribute('x', '20');
+                labelDeS.setAttribute('y', '50');
+                labelDeS.setAttribute('font-size', '9');
+                labelDeS.setAttribute('fill', 'var(--accent-cool)');
+                labelDeS.textContent = 'x→0';
+                svg.appendChild(labelDeS);
+
+                const labelNarai = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                labelNarai.setAttribute('x', '220');
+                labelNarai.setAttribute('y', '100');
+                labelNarai.setAttribute('font-size', '9');
+                labelNarai.setAttribute('fill', 'var(--accent-warm)');
+                labelNarai.textContent = 'x→1';
+                svg.appendChild(labelNarai);
+
+                document.getElementById('uValue').textContent = u.toFixed(3);
+                document.getElementById('vValue').textContent = v.toFixed(3);
+            },
+
+            renderThermodynamics() {
+                const tb = this.state.T_b;
+                const tc = Math.abs(this.state.T_c);
+                const ratio = this.state.T_ratio;
+                const eta = this.state.eta_C * 100;
+
+                document.getElementById('tbValue').textContent = tb.toFixed(4);
+                document.getElementById('tcValue').textContent = tc.toFixed(4);
+                document.getElementById('ratioValue').textContent = ratio.toFixed(4);
+                document.getElementById('etaValue').textContent = eta.toFixed(1) + '%';
+            },
+
+            renderValuesTable() {
+                const s = this.state;
+
+                document.getElementById('val-x').textContent = s.x.toFixed(4);
+                document.getElementById('val-lambda').textContent = s.lambda.toFixed(4);
+                document.getElementById('val-rb').textContent = s.r_b.toFixed(4);
+                document.getElementById('val-rc').textContent = s.r_c.toFixed(4);
+                document.getElementById('val-rLambda').textContent = s.r_lambda.toFixed(4);
+                document.getElementById('val-M').textContent = s.M.toFixed(4);
+                document.getElementById('val-fb').textContent = (s.fb * 100).toFixed(1) + '%';
+                document.getElementById('val-fc').textContent = (s.fc * 100).toFixed(1) + '%';
+                document.getElementById('val-fDelta').textContent = (s.fDelta * 100).toFixed(1) + '%';
+                document.getElementById('val-Tb').textContent = s.T_b.toFixed(4);
+                document.getElementById('val-Tc').textContent = Math.abs(s.T_c).toFixed(4);
+                document.getElementById('val-eta').textContent = (s.eta_C * 100).toFixed(1) + '%';
+            },
+
+            renderValidation() {
+                const s = this.state;
+                const tol = 1e-10;
+
+                const checkEisenstein = Math.abs(s.residual_eisenstein) < tol;
+                const checkEntropy = Math.abs(s.residual_entropy) < tol;
+                const checkArc = Math.abs(s.residual_arc) < tol;
+                const checkRatio = Math.abs(s.residual_ratio) < tol;
+                const checkM = s.M > 0;
+                const checkSubext = 9 * s.lambda * s.M * s.M < 1;
+
+                this.updateCheckmark('check-eisenstein', checkEisenstein);
+                this.updateCheckmark('check-entropy', checkEntropy);
+                this.updateCheckmark('check-arc', checkArc);
+                this.updateCheckmark('check-ratio', checkRatio);
+                this.updateCheckmark('check-M', checkM);
+                this.updateCheckmark('check-subext', checkSubext);
+
+                document.getElementById('val-eisenstein').textContent = s.residual_eisenstein.toExponential(2);
+                document.getElementById('val-entropy').textContent = s.residual_entropy.toExponential(2);
+                document.getElementById('val-arc').textContent = s.residual_arc.toExponential(2);
+                document.getElementById('val-ratio').textContent = s.residual_ratio.toExponential(2);
+            },
+
+            updateCheckmark(id, pass) {
+                const elem = document.getElementById(id);
+                if (pass) {
+                    elem.className = 'validation-check pass';
+                    elem.textContent = '✓';
+                } else {
+                    elem.className = 'validation-check fail';
+                    elem.textContent = '✗';
+                }
+            },
+
+            copyTable() {
+                const s = this.state;
+                const text = `SdS State Data:
+x = ${s.x.toFixed(4)}
+Λ = ${s.lambda.toFixed(4)}
+r_b = ${s.r_b.toFixed(4)}
+r_c = ${s.r_c.toFixed(4)}
+r_Λ = ${s.r_lambda.toFixed(4)}
+M = ${s.M.toFixed(4)}
+S_b/S_Λ = ${(s.fb * 100).toFixed(1)}%
+S_c/S_Λ = ${(s.fc * 100).toFixed(1)}%
+Δ/S_Λ = ${(s.fDelta * 100).toFixed(1)}%
+T_b = ${s.T_b.toFixed(4)}
+T_c = ${Math.abs(s.T_c).toFixed(4)}
+η_C = ${(s.eta_C * 100).toFixed(1)}%`;
+
+                navigator.clipboard.writeText(text).then(() => {
+                    const btn = event.target;
+                    const orig = btn.textContent;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => { btn.textContent = orig; }, 2000);
+                });
+            }
+        };
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            app.init();
+        });
+    </script>
+</body>
+</html>
