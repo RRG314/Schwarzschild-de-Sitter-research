@@ -2,6 +2,13 @@
 
 This repository is a structured research record for Schwarzschild-de Sitter thermodynamics.
 
+## Start The Tool (Fastest Path)
+
+- GitHub Pages landing page: [https://rrg314.github.io/sds-research/](https://rrg314.github.io/sds-research/)
+- Direct workbench link: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
+
+If you want the interactive app, use the direct workbench link above.
+
 It is designed to be readable by both technical readers and newcomers by clearly separating:
 
 - exact/proved results

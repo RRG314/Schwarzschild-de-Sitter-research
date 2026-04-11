@@ -2,6 +2,10 @@
 
 If this is your first time looking at this project, use this guide.
 
+Direct tool link:
+
+- `https://rrg314.github.io/sds-research/workbench/`
+
 ## What this project is
 
 This repository studies Schwarzschild-de Sitter (SdS) black hole thermodynamics.

@@ -3,64 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SdS Research Repository</title>
+    <title>SdS Research</title>
     <style>
       :root {
-        --bg: #f6f7fb;
+        --bg: #f5f7fb;
         --panel: #ffffff;
-        --ink: #10213a;
-        --muted: #4f5f7a;
-        --line: #d9e1ee;
-        --accent: #0b6ab8;
-        --accent-2: #0a8f85;
-        --warn: #9a5f00;
+        --ink: #10233e;
+        --muted: #48607f;
+        --line: #d9e3f0;
+        --blue: #0b6ab8;
+        --teal: #0f8f82;
+        --amber: #a36308;
+        --rose: #9a2952;
       }
       * { box-sizing: border-box; }
       body {
         margin: 0;
         font-family: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
         color: var(--ink);
-        background: radial-gradient(circle at 20% 0%, #e9f5ff 0%, var(--bg) 45%);
+        background: radial-gradient(circle at 15% 0%, #e9f3ff, var(--bg) 48%);
         line-height: 1.45;
       }
-      .wrap {
-        width: min(980px, 92vw);
-        margin: 0 auto;
-        padding: 24px 0 48px;
-      }
+      .wrap { width: min(1050px, 92vw); margin: 0 auto; padding: 24px 0 44px; }
       .hero {
-        background: linear-gradient(135deg, #0e2f57, #144d8f 55%, #0b6ab8);
-        color: white;
-        border-radius: 16px;
+        background: linear-gradient(140deg, #0f2c4f, #15497f 55%, #1d629e);
+        color: #fff;
+        border-radius: 18px;
         padding: 28px;
-        box-shadow: 0 18px 50px rgba(18, 57, 104, 0.3);
+        box-shadow: 0 18px 48px rgba(12, 43, 78, 0.28);
       }
-      h1, h2, h3 { margin: 0 0 12px; }
-      p { margin: 0 0 12px; }
-      .lead { font-size: 1.1rem; opacity: 0.95; }
-      .cta-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        margin-top: 16px;
-      }
+      h1, h2, h3 { margin: 0 0 10px; }
+      p { margin: 0 0 10px; }
+      .lead { font-size: 1.1rem; opacity: 0.96; }
+      .small { opacity: 0.88; font-size: 0.95rem; }
+      .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
       a.btn {
-        display: inline-block;
         text-decoration: none;
         padding: 10px 14px;
         border-radius: 10px;
-        border: 1px solid rgba(255,255,255,0.3);
+        font-weight: 700;
+        border: 1px solid rgba(255,255,255,0.35);
         color: #fff;
         background: rgba(255,255,255,0.08);
       }
       a.btn.primary {
-        background: #17b88e;
-        border-color: #17b88e;
-        color: #072a2b;
-        font-weight: 700;
+        background: #1ecf9e;
+        border-color: #1ecf9e;
+        color: #072b2a;
+      }
+      .app-url {
+        margin-top: 14px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        background: rgba(255,255,255,0.12);
+        border: 1px solid rgba(255,255,255,0.2);
+        border-radius: 10px;
+        padding: 8px 10px;
+        display: inline-block;
       }
       .grid {
-        margin-top: 18px;
+        margin-top: 16px;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 12px;
@@ -69,115 +70,118 @@
         background: var(--panel);
         border: 1px solid var(--line);
         border-radius: 14px;
-        padding: 16px;
+        padding: 15px;
       }
       .tag {
         display: inline-block;
-        border-radius: 999px;
-        padding: 4px 8px;
-        font-size: 0.78rem;
         margin-bottom: 8px;
+        border-radius: 999px;
+        padding: 3px 8px;
+        font-size: 0.78rem;
         font-weight: 700;
       }
-      .tag.exact { background: #dbf5e5; color: #14532d; }
-      .tag.empirical { background: #dceefb; color: #0b4b88; }
-      .tag.open { background: #fff1d6; color: var(--warn); }
-      .sections {
-        margin-top: 22px;
+      .tag.foundational { background: #def5e8; color: #165a35; }
+      .tag.experimental { background: #ddecff; color: #0f4e8b; }
+      .tag.disproven { background: #ffe4ef; color: var(--rose); }
+      .tag.open { background: #fff0d8; color: var(--amber); }
+      a.link { color: var(--blue); font-weight: 700; }
+      .split {
+        margin-top: 18px;
         display: grid;
-        grid-template-columns: 1.4fr 1fr;
+        grid-template-columns: 1.35fr 1fr;
         gap: 12px;
       }
-      .sections ul {
-        margin: 8px 0 0;
-        padding-left: 18px;
-      }
-      .sections li { margin: 8px 0; }
+      ol { margin: 8px 0 0; padding-left: 18px; }
+      li { margin: 8px 0; }
       .mono {
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-        background: #eef2f8;
+        background: #edf2fa;
         border-radius: 6px;
         padding: 2px 6px;
       }
-      .small {
-        color: var(--muted);
-        font-size: 0.93rem;
-      }
-      a.link { color: var(--accent); font-weight: 600; }
       footer {
-        margin-top: 20px;
+        margin-top: 18px;
         color: var(--muted);
         font-size: 0.9rem;
       }
-      @media (max-width: 860px) {
-        .sections { grid-template-columns: 1fr; }
-      }
+      @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
     <main class="wrap">
       <section class="hero">
-        <h1>SdS Research Repository</h1>
+        <h1>Schwarzschild-de Sitter Research</h1>
         <p class="lead">
-          A research repository for Schwarzschild-de Sitter thermodynamics, spectral/QNM analysis, and a practical interactive workbench.
+          This repository separates what is proved, what is numerical, what is disproven, and what is still open.
         </p>
         <p class="small">
-          This project is organized to separate exact results, empirical work, exploratory notes, and artifacts/retractions.
+          If you only want to use the tool, click the green button. That is the live workbench.
         </p>
-        <div class="cta-row">
-          <a class="btn primary" href="./workbench/">Open Interactive Workbench</a>
+        <div class="row">
+          <a class="btn primary" href="./workbench/">Start Tool (SdS Workbench)</a>
+          <a class="btn" href="https://github.com/RRG314/sds-research/blob/main/papers/README.md">Paper Navigation</a>
           <a class="btn" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/start-here.md">Start Here Guide</a>
-          <a class="btn" href="https://github.com/RRG314/sds-research/blob/main/README.md">Repository README</a>
         </div>
+        <div class="app-url">Direct app link: https://rrg314.github.io/sds-research/workbench/</div>
       </section>
 
-      <section class="grid" aria-label="status cards">
+      <section class="grid">
         <article class="card">
-          <span class="tag exact">Exact</span>
-          <h3>Core thermodynamic identities</h3>
-          <p>Closed-form algebraic relations are documented in core theory papers and theory docs.</p>
-          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/theory/core-sds-results.md">See core SDS results</a></p>
+          <span class="tag foundational">Start Here Fast</span>
+          <h3>Use the workbench immediately</h3>
+          <p>Click <strong>Start Tool (SdS Workbench)</strong> above, or open the direct app link.</p>
+          <p><a class="link" href="./workbench/">Open workbench now</a></p>
         </article>
         <article class="card">
-          <span class="tag empirical">Empirical</span>
-          <h3>Spectral and recursive experiments</h3>
-          <p>Numerical results, negative findings, and audits are preserved with provenance.</p>
-          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/spectral/core-spectral-results.md">See spectral results</a></p>
+          <span class="tag foundational">Foundational</span>
+          <h3>Exact theory papers</h3>
+          <p>Core identities, derivations, and formula structure in 4D SdS.</p>
+          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/foundational/README.md">Open foundational lane</a></p>
         </article>
         <article class="card">
-          <span class="tag open">Open</span>
-          <h3>Open questions and next steps</h3>
-          <p>Unresolved claims are kept explicit, especially around exact QNM structure and extensions.</p>
-          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/status.md">See project status</a></p>
+          <span class="tag experimental">Experimental</span>
+          <h3>Numerical and scan results</h3>
+          <p>WKB, recursive, and extension experiments with retained artifacts and outputs.</p>
+          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/experimental/README.md">Open experimental lane</a></p>
+        </article>
+        <article class="card">
+          <span class="tag disproven">Disproven / Retracted</span>
+          <h3>Negative results kept visible</h3>
+          <p>Claims that failed audit are preserved with context, not hidden.</p>
+          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/disproven-or-retracted/README.md">Open disproven lane</a></p>
+        </article>
+        <article class="card">
+          <span class="tag open">Open questions</span>
+          <h3>What remains unresolved</h3>
+          <p>Exact spectral methods, extension behavior, and theorem-completion targets.</p>
+          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/open-questions/README.md">Open questions lane</a></p>
         </article>
       </section>
 
-      <section class="sections">
+      <section class="split">
         <article class="card">
-          <h2>If You Are New To This Project</h2>
+          <h2>Quick Paths</h2>
           <ol>
-            <li>Read <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/start-here.md">Start Here</a>.</li>
-            <li>Read <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/status.md">Status</a> for exact vs empirical vs open.</li>
-            <li>Use <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/research-map.md">Research Map</a> to find source files.</li>
-            <li>Open <a class="link" href="./workbench/">Workbench</a> to explore states and evolution trajectories.</li>
+            <li>New to the project: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/start-here.md">Start Here</a></li>
+            <li>Need formulas fast: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/theory/core-formula-sheet.md">Core Formula Sheet</a></li>
+            <li>Need status by evidence type: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/status.md">Project Status</a></li>
+            <li>Need app now: <a class="link" href="./workbench/">Launch Workbench</a></li>
           </ol>
-          <p class="small">Terminology help: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/glossary.md">Glossary</a>.</p>
         </article>
         <article class="card">
-          <h2>Simple GitHub Pages Setup</h2>
-          <p>No workflow required.</p>
+          <h2>Simple Pages Setup</h2>
           <ol>
-            <li>Run <span class="mono">scripts/build/publish-pages-root.sh</span>.</li>
-            <li>Commit and push generated <span class="mono">/workbench</span>.</li>
-            <li>In GitHub: Settings > Pages > Deploy from branch.</li>
-            <li>Select branch <span class="mono">main</span>, folder <span class="mono">/(root)</span>.</li>
+            <li>In GitHub: <span class="mono">Settings -> Pages</span></li>
+            <li>Source: <span class="mono">Deploy from a branch</span></li>
+            <li>Branch: <span class="mono">main</span></li>
+            <li>Folder: <span class="mono">/(root)</span></li>
           </ol>
-          <p class="small">The root site is this page. The app is served from <span class="mono">/workbench/</span>.</p>
+          <p>Root serves this page. The app is in <span class="mono">/workbench/</span>.</p>
         </article>
       </section>
 
       <footer>
-        This repository prioritizes transparent research status over hype. Artifact and retracted paths are retained for provenance.
+        Editorial policy: foundational claims are explicit, negative findings remain available, and open work is labeled as open.
       </footer>
     </main>
   </body>
