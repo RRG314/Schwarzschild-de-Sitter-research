@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: "Schwarzschild-de Sitter Research Repository"
+message: "If you use this repository, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: Reid
+    given-names: Steven
+repository-code: "https://github.com/RRG314/sds-research"
+license: MIT
+abstract: >
+  Consolidated research repository for 4D Schwarzschild-de Sitter thermodynamics,
+  spectral/QNM analyses, correction-gap formalization, recursive spacetime
+  extensions, and an interactive SdS workbench application.
+keywords:
+  - schwarzschild-de-sitter
+  - horizon thermodynamics
+  - quasinormal modes
+  - cosmological horizon
+  - recursive spacetime
+  - correction gap

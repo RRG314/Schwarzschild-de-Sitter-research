@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+.pytest_cache/
+
+# Node
+node_modules/
+app/sds-workbench/node_modules/
+app/sds-workbench/dist/
+
+# Logs and temp
+*.log
+*.tmp
+*.swp
+
+# IDE
+.vscode/
+.idea/
+
+# OS artifacts
+Thumbs.db
