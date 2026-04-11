@@ -1,85 +1,87 @@
 # Schwarzschild-de Sitter (SdS) Research Repository
 
-This repository is a structured research record for Schwarzschild-de Sitter thermodynamics.
+This repository presents a structured research program on Schwarzschild-de Sitter thermodynamics, spectral/QNM analysis, correction-gap formalization, recursive extensions, and an interactive workbench.
 
-## Start The Tool (Fastest Path)
+The editorial goal is strict claim discipline: exact results, empirical results, approximation-based results, negative findings, and open questions are explicitly separated.
 
-- GitHub Pages landing page: [https://rrg314.github.io/sds-research/](https://rrg314.github.io/sds-research/)
-- Direct workbench link: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
+## Interactive Workbench
 
-If you want the interactive app, use the direct workbench link above.
+- Repository landing page: [https://rrg314.github.io/sds-research/](https://rrg314.github.io/sds-research/)
+- Direct workbench: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
 
-It is designed to be readable by both technical readers and newcomers by clearly separating:
+## Evidence Classes
 
-- exact/proved results
-- numerical/empirical results
-- approximation-based work
-- exploratory ideas
-- artifacts/retracted paths
-- open questions
+- `exact`: derivation-level statements within stated assumptions.
+- `empirical`: numerical or computational outcomes.
+- `approximation-based`: method-dependent results.
+- `disproven` / `retracted`: claims no longer supported after audit.
+- `open`: unresolved questions.
 
-## Start Here (New Readers)
+## Reading Lanes
 
-1. [Project landing page](./index.html)
-2. [Start Here guide](./docs/overview/start-here.md)
-3. [Project status](./docs/overview/status.md)
-4. [Research map](./docs/overview/research-map.md)
-5. [Glossary](./docs/overview/glossary.md)
+- General orientation: `docs/overview/start-here.md`
+- Project-wide status map: `docs/overview/status.md`
+- Formula summary: `docs/theory/core-formula-sheet.md`
+- Paper navigation: `papers/README.md`
+- Foundational lane: `papers/foundational/README.md`
+- Experimental lane: `papers/experimental/README.md`
+- Disproven/retracted lane: `papers/disproven-or-retracted/README.md`
+- Open-questions lane: `papers/open-questions/README.md`
 
 ## Main Research Areas
 
 1. Core SdS theory
-- Entropy structure and horizon identities
-- Eisenstein-style formulation
-- Exact temperature and Carnot-efficiency relations
+- Horizon identities and entropy structure
+- Eisenstein-coordinate formulation
+- Exact temperature-ratio and Carnot relations within model scope
 
 2. Spectral / QNM program
-- Framework and derivation pipeline
-- Numerical scans and audits
-- Explicit negative/retracted outcomes where applicable
+- Formal framework and statement pipeline
+- Numerical scans and reproducible artifacts
+- Negative and retracted findings retained with explicit audit history
 
-3. Correction-gap / cross-domain
-- Theorem-schema development
+3. Correction-gap / cross-domain program
+- Theorem-schema construction
 - Scope limits and no-go framing
 
 4. Recursive spacetime and extensions
 - Recursive-horizon baselines
-- RNdS extension experiments
+- RNdS and extension diagnostics
 - Robustness and scalar-field audits
 
-5. Interactive SdS Workbench app
+5. SdS workbench application
 - State-space exploration
-- Saved states / compare / export / share
-- Evolution mode (simplified semiclassical parameter evolution)
+- Saved states, comparisons, exports
+- Evolution trajectories under a simplified semiclassical parameter model
 
-## Evidence Labels
+## Repository Map
 
-- `exact`: algebraic/closed-form derivation in stated assumptions
-- `empirical`: numerical result
-- `approximation-based`: result depends on approximation method
-- `exploratory`: hypothesis or partial path
-- `artifact` / `retracted`: known failure or superseded claim
-- `open`: unresolved question
+- `docs/overview/`: orientation, status, timeline, glossary, file index
+- `docs/theory/`: foundational summaries and formula sheets
+- `docs/spectral/`: spectral framework, derivations, audits, status files
+- `docs/correction-gap/`: correction-gap formalization and limits
+- `docs/recursive-spacetime/`: recursive and extension analyses
+- `papers/`: lane-based navigation and manuscript locations
+- `app/sds-workbench/`: React + TypeScript source for the interactive tool
+- `workbench/`: static build served from GitHub Pages
+- `src/`: Python modules used by experiment suites
+- `experiments/`: experiment scripts by program area
+- `data/generated/`: generated numerical outputs
+- `tests/`: app and math tests
+- `archive/`: historical variants and deprecated artifacts
 
-## Run The Workbench Locally
+## Reproducibility (Local)
+
+Workbench:
 
 ```bash
 cd app/sds-workbench
 npm install
-npm run dev
-```
-
-## Validate Locally
-
-App tests/build:
-
-```bash
-cd app/sds-workbench
 npm run test
 npm run build
 ```
 
-Selected Python math tests:
+Selected math test suites:
 
 ```bash
 python3 -m venv .venv
@@ -93,54 +95,17 @@ pytest tests/math/horizon_test_state_space.py \
        tests/math/recursive_test_sds_identities.py -q
 ```
 
-## Simple GitHub Pages Deployment (Root, No Workflow)
+## Provenance and Integrity
 
-This repo now supports a simple branch deployment from root.
-
-1. Build and publish the app into `/workbench`:
-
-```bash
-./scripts/build/publish-pages-root.sh
-```
-
-2. Commit and push the updated `workbench/` files.
-3. In GitHub repo settings:
-- `Settings` -> `Pages`
-- `Source`: `Deploy from a branch`
-- `Branch`: `main`
-- `Folder`: `/(root)`
-
-Result:
-- Root site serves `index.html`
-- Workbench app serves from `/workbench/`
-
-## Repository Map
-
-- `docs/overview/`: orientation, status, timeline, index, beginner guides
-- `docs/theory/`: theory summaries and core structure
-- `docs/spectral/`: spectral/QNM framework, derivations, audits
-- `docs/correction-gap/`: correction-gap formalization materials
-- `docs/recursive-spacetime/`: recursive system analyses
-- `papers/`: draft and preprint-oriented manuscript materials
-- `app/sds-workbench/`: source app (React + TypeScript)
-- `workbench/`: static build output for root GitHub Pages hosting
-- `src/`: Python modules used in experiments
-- `experiments/`: experiment scripts and program-specific runs
-- `data/generated/`: generated result files
-- `tests/`: app and math tests
-- `archive/`: preserved superseded/deprecated/raw history
-- `scripts/migrate/`: migration provenance data
-
-## Provenance
+Migration provenance is recorded in:
 
 - `scripts/migrate/sds_migration_map.source.csv`
 - `scripts/migrate/migration-manifest.csv`
 - `scripts/migrate/migration-conflicts.json`
 
-## Integrity Policy
+Integrity policy:
 
-This repository avoids inflated claims.
-
-- Exploratory work is not presented as proved.
-- Retracted or artifact paths are retained and labeled.
-- Historical variants are archived rather than hidden.
+- exploratory results are not presented as proofs,
+- negative outcomes are retained,
+- model scope is stated explicitly,
+- historical variants are archived rather than deleted.

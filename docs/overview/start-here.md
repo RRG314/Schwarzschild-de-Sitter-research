@@ -1,48 +1,39 @@
-# Start Here (No Background Required)
+# Start Here
 
-If this is your first time looking at this project, use this guide.
+This guide provides a concise entry path for new readers.
 
-Direct tool link:
+## Direct Workbench Access
 
 - `https://rrg314.github.io/sds-research/workbench/`
 
-## What this project is
+## Project Objective
 
-This repository studies Schwarzschild-de Sitter (SdS) black hole thermodynamics.
+The repository studies thermodynamic structure in Schwarzschild-de Sitter spacetime, with a focus on:
 
-In plain language, it asks:
+- horizon entropy identities,
+- temperature-ratio structure,
+- spectral/QNM program status,
+- extension and recursive diagnostics,
+- explicit documentation of negative and retracted outcomes.
 
-- How two horizons (black-hole and cosmological) share entropy and temperature.
-- Which relationships are exact formulas versus numerical approximations.
-- What fails, what remains open, and what can be tested next.
+## Recommended Reading Order
 
-## What to read first
+1. `docs/overview/status.md`
+2. `docs/theory/core-formula-sheet.md`
+3. `docs/theory/core-sds-results.md`
+4. `docs/spectral/core-spectral-results.md`
+5. `papers/README.md`
 
-1. `README.md` for the high-level map.
-2. `docs/overview/status.md` to see what is exact, empirical, artifact, or open.
-3. `docs/theory/core-sds-results.md` for core theory results.
-4. `docs/spectral/core-spectral-results.md` for spectral/QNM status.
-5. `docs/app/app-overview.md` for the interactive workbench.
+## Claim Interpretation
 
-## How to interpret claims safely
+Use the evidence labels consistently:
 
-Use evidence labels everywhere in this repo:
+- `exact`
+- `empirical`
+- `approximation-based`
+- `disproven` / `retracted`
+- `open`
 
-- `exact`: proved/algebraic derivation in the stated model.
-- `empirical`: numerical experiment output.
-- `approximation-based`: relies on approximation assumptions.
-- `exploratory`: idea under development.
-- `artifact` or `retracted`: result no longer trusted.
-- `open`: unresolved question.
+## Scope Note
 
-## Fastest way to explore interactively
-
-1. Run `cd app/sds-workbench && npm install && npm run dev`.
-2. Open the app and inspect `Explore` then `Evolution` tabs.
-3. Treat evolution as a simplified semiclassical parameter model, not full GR simulation.
-
-## If you only have 30 minutes
-
-1. Read `docs/overview/status.md`.
-2. Read `docs/theory/core-sds-results.md`.
-3. Open the app overview and run one trajectory in Evolution mode.
+Evolution mode in the workbench is a simplified semiclassical parameter-evolution model. It is not a full numerical relativity or full-GR simulation.

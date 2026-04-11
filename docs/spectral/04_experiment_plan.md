@@ -10,7 +10,7 @@
 
 The experiment plan was organized around five sequentially deeper questions. Each experiment is self-contained: it runs, writes JSON output to `results/`, and generates figures in `figures/`. A master orchestrator (`run_all.py`) runs all five and records pass/fail status.
 
-The experiments were designed to be honest about expected outcomes. Three were expected to be negative (symmetry check, full Eisenstein structure, RDT correlation), and the design explicitly planned to quantify *how negative* rather than seeking to confirm positive results. The Lambda-scaling law was expected positive and was used as an internal validation benchmark. The spectral-thermodynamic correspondence (EXP03 TEST 4) was genuinely exploratory.
+The experiments were designed to be honest about expected outcomes. Three were expected to be negative (symmetry check, full Eisenstein structure, RDT correlation), and the design explicitly planned to quantify *how negative* rather than seeking to confirm positive results. The Lambda-scaling law was expected positive and was used as a validation benchmark. The spectral-thermodynamic correspondence (EXP03 TEST 4) was genuinely exploratory.
 
 ---
 

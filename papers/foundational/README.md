@@ -1,6 +1,6 @@
-# Foundational / Proved Lane
+# Foundational / Exact Lane
 
-Use this lane for the strongest exact results.
+This lane contains foundational derivation-level results within the stated SdS model assumptions.
 
 ## Primary Papers
 
@@ -8,14 +8,14 @@ Use this lane for the strongest exact results.
 - `papers/sds-theory/eisenstein-carnot-paper.md`
 - `papers/submitted-or-preprint-ready/eisenstein-coordinate-reformulation-sds-thermodynamics.pdf`
 
-## Fast Supporting Docs
+## Supporting Summaries
 
 - `docs/theory/core-sds-results.md`
 - `docs/theory/core-formula-sheet.md`
-- `docs/overview/status.md` (proved section)
+- `docs/overview/status.md`
 
-## Scope of Claims
+## Scope
 
-- Exact 4D SdS entropy and horizon structure
-- Exact temperature-ratio and Carnot relations in the stated framework
-- Dimensional closure classification framing (D=4, D=5 versus D>=6)
+- exact 4D SdS entropy/horizon identities,
+- exact temperature-ratio and Carnot relations in model scope,
+- dimensional closure classification framing.

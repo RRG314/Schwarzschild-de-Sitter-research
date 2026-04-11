@@ -3,7 +3,7 @@
 **Question:** Does a recursive horizon system built on the SdS Eisenstein arc
 produce stable, physically admissible recursive dynamics with a robust
 emergent non-integer spectral dimension, or does it collapse into a
-numerically interesting but non-physical toy model?
+numerically interesting but non-physical reduced model?
 
 **Verdict: Partially. The algebraic structure is sound; the spectral
 dimension result is negative; the interior fixed points are real and

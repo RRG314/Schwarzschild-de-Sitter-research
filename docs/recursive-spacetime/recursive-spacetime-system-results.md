@@ -7,7 +7,7 @@
 
 ## Summary: What Was Built and Run
 
-This project upgrades the `recursive_horizon_project` 1D Eisenstein arc toy
+This project upgrades the `recursive_horizon_project` 1D Eisenstein arc reduced
 into a full (M, Λ) / (M, Q, Λ) parameter-space system for Schwarzschild-de Sitter
 (SdS) and Reissner-Nordström-de Sitter (RNdS) black holes.
 

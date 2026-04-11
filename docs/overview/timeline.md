@@ -1,6 +1,6 @@
 # Timeline
 
-This timeline is reconstructed from the imported corpus chronology and internal project notes.
+This timeline is reconstructed from the imported corpus chronology and project records.
 
 ## Phase 1: Entropy / Eisenstein Foundation
 
@@ -48,7 +48,7 @@ Representative outputs:
 
 Focus:
 - test recursive dynamics beyond fixed-arc intuition
-- move from baseline recursive horizon toy model to expanded parameter-space models
+- move from baseline recursive horizon reduced model to expanded parameter-space models
 
 Representative outputs:
 - `docs/recursive-spacetime/BASELINE_ASSESSMENT.md`
@@ -59,7 +59,7 @@ Representative outputs:
 
 Focus:
 - package exact formulas and diagnostics in interactive workbench
-- preserve share/save/export workflows
+- preserve share/save/export capabilities
 
 Representative outputs:
 - `app/sds-workbench/src/engine/physics.ts`

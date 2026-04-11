@@ -1,40 +1,38 @@
 # Core Spectral Results
 
-This is the landing page for the spectral/QNM program status.
+This document summarizes the current status of the spectral/QNM program.
 
 ## Scope
 
-- Scalar QNM analysis in Schwarzschild-de Sitter settings
-- Exact scaling/structure derivations where available
-- WKB-driven experiment pipeline and subsequent audits
+- scalar QNM analysis in SdS settings,
+- derivation-level structural statements,
+- WKB-based numerical program and audit outcomes.
 
-## Strongest Exact/Derivation-Level Results
+## Exact / Derivation-Level Elements
 
-1. Lambda scaling structure
-- Frequency scaling relation documented and numerically cross-checked.
+- $\Lambda$-scaling structure in the current derivation pipeline.
+- Thermodynamic identities integrated as structural context for spectral comparisons.
 
-2. Thermodynamic formula integration into spectral framing
-- Exact SdS thermodynamic identities used as structural context for spectral comparisons.
+## Empirical Program
 
-## Strongest Empirical Results
+- WKB experiments (`exp01`-`exp05`) with retained outputs and figures.
+- Reproducible data artifacts in `data/generated/spectral/`.
 
-- WKB experiment suite (`exp01`-`exp05`) produced reproducible data and figure outputs.
-- Generated artifacts are retained in `data/generated/spectral/` and `docs/figures/spectral/`.
+## Disproven or Retracted Findings
 
-## Negative and Retracted Results (Explicit)
+- No robust $x \to 1-x$ spectral symmetry in current audited results.
+- No stable Eisenstein-structure signature in audited spectral outputs.
+- Prior Q-Carnot correspondence claim was retracted as a computational artifact.
 
-- No x -> 1-x spectral symmetry.
-- No robust Eisenstein-structure signature in spectral outputs.
-- Q-Carnot correspondence claim retracted as computational artifact.
-
-These are not hidden; they are part of the canonical synthesis.
+These outcomes remain visible as part of the canonical research record.
 
 ## Open Questions
 
-- Exact-method (non-WKB) QNM behavior and whether any robust thermodynamic correspondence survives.
-- Inversion utility of mode-ratio constructions under exact methods.
+- Exact-method (non-WKB) QNM behavior.
+- Whether any thermodynamic correspondence survives exact treatment.
+- Utility limits of mode-ratio inversion constructions.
 
-## Canonical Detail Files
+## Canonical Files
 
 - `docs/spectral/04b_exact_derivations.md`
 - `docs/spectral/04c_negative_results_formalized.md`
@@ -42,7 +40,7 @@ These are not hidden; they are part of the canonical synthesis.
 - `docs/spectral/06b_research_synthesis_revised.md`
 - `experiments/spectral/run_all.py`
 
-## Status
+## Classification
 
-- Category: mixed `exact` + `approximation-based` + `empirical`
-- Maturity: strong audit trail, open exact-method phase
+- Evidence class: mixed `exact` + `approximation-based` + `empirical` + `disproven`
+- Maturity: audited numerical program with open exact-method phase

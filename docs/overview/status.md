@@ -1,64 +1,70 @@
 # Project Status
 
-## Proved / Exact
+## Exact (Within Stated Model)
 
-- 4D SdS Eisenstein-style horizon constraint and entropy identity (core theory manuscripts).
-- Exact SdS parametrization formulas (x-based horizon and entropy fractions).
-- Exact temperature ratio and Carnot-efficiency expressions in the theory layer.
-- Algebraic/dimensional closure classification claims explicitly argued for D=4 and D=5 vs D>=6.
+- 4D SdS horizon constraint and entropy identity.
+- Exact `x`-parameter formulas and temperature-ratio structure.
+- Exact Carnot-efficiency relation in the model framework.
+- Dimensional closure classification framing for $D=4$, $D=5$, and $D\ge6$.
 
 Primary files:
+
 - `papers/sds-theory/sds-entropy-paper.md`
 - `papers/sds-theory/eisenstein-carnot-paper.md`
-- `docs/theory/sds-entropy-structure.md`
+- `docs/theory/core-sds-results.md`
 
 ## Empirical / Numerical
 
-- Spectral/QNM WKB experiment outputs with figures and JSON result sets.
+- Spectral/QNM WKB experiment outputs and audits.
 - Recursive-horizon and recursive-spacetime experiment suites.
-- RNdS extension scans, robustness checks, and orbit data exports.
+- RNdS extension scans and robustness diagnostics.
 
 Primary files:
+
 - `docs/spectral/05_results_and_analysis.md`
-- `data/generated/spectral/*.json`
+- `data/generated/spectral/`
 - `docs/recursive-spacetime/recursive-horizon-project-results.md`
 - `docs/recursive-spacetime/recursive-spacetime-system-results.md`
 
 ## Approximation-Based
 
-- WKB-based spectral inference and associated uncertainty notes.
-- Correction-gap theorem-schema formalization where abstraction choices matter.
-- Simplified semiclassical evolution model in app mode (`dM/dt = ±k/M^2`).
+- WKB spectral inferences.
+- Correction-gap theorem-schema analysis.
+- Simplified semiclassical evolution model in the app.
 
 Primary files:
-- `docs/spectral/04b_exact_derivations.md` (contains both exact and approximation context)
+
+- `docs/spectral/04b_exact_derivations.md`
 - `docs/correction-gap/correction_gap_formalization.md`
 - `app/sds-workbench/src/engine/evolution.ts`
 
-## Retracted / Artifact / Superseded
+## Disproven / Retracted / Superseded
 
-- Q-Carnot correspondence claim in spectral program is explicitly documented as a computational artifact.
-- Legacy single-file app variants (`sds-explorer`) are retained in `archive/deprecated/`.
-- Draft and conflict-variant docs preserved in archive for traceability.
+- Q-Carnot correspondence in spectral program retracted as artifact.
+- Deprecated app variants retained in archive.
+- Superseded drafts retained for provenance.
 
 Primary files:
+
 - `docs/spectral/06b_research_synthesis_revised.md`
-- `archive/deprecated/sds-explorer/`
+- `archive/deprecated/`
 - `archive/old-drafts/`
 
 ## Open Questions
 
-- Exact (non-WKB) SdS QNM structure and whether any robust thermodynamic correspondence survives.
-- Higher-dimensional recursive flow behavior under physically grounded updates.
-- Which correction-gap statements can be elevated from schema/proposition to theorem with stable assumptions.
+- Exact (non-WKB) SdS QNM structure.
+- Stability of thermodynamic-spectral links under exact methods.
+- Extension behavior under physically grounded recursive updates.
+- Correction-gap statements that can be elevated from schema to theorem.
 
 Primary files:
+
 - `docs/spectral/06_next_steps.md`
 - `docs/spectral/06a_proof_status_map.md`
 - `ROADMAP.md`
 
-## Immediate Next Steps
+## Near-Term Priorities
 
-1. Implement exact-method spectral solver path (Leaver-style) and compare against WKB outputs.
-2. Expand evolution-mode validation (edge-case integrator checks, trajectory consistency tests).
-3. Continue canonicalization of archived variants into paper-ready documents with explicit status labels.
+1. Exact-method spectral solver path (Leaver-style or equivalent).
+2. Additional evolution-mode validation and edge-case tests.
+3. Continued canonicalization of archived variants with explicit evidence labels.

@@ -1,6 +1,6 @@
 # recursive_spacetime_system
 
-Upgrade of `recursive_horizon_project` from a 1D Eisenstein arc toy model into a
+Upgrade of `recursive_horizon_project` from a 1D Eisenstein arc reduced model into a
 genuine (M, Λ) / (M, Q, Λ) spacetime parameter-space system.
 
 ## What this is

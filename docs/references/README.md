@@ -1,6 +1,6 @@
 # References
 
-This folder stores reference papers used alongside active internal documents.
+This folder stores reference papers used alongside active research documents.
 
 Current reference artifacts include:
 

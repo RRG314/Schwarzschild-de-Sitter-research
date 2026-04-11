@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SdS Research</title>
+    <title>Schwarzschild-de Sitter Research</title>
     <style>
       :root {
         --bg: #f5f7fb;
@@ -12,9 +12,10 @@
         --muted: #48607f;
         --line: #d9e3f0;
         --blue: #0b6ab8;
-        --teal: #0f8f82;
         --amber: #a36308;
         --rose: #9a2952;
+        --green: #16613d;
+        --teal: #0f8f82;
       }
       * { box-sizing: border-box; }
       body {
@@ -24,7 +25,11 @@
         background: radial-gradient(circle at 15% 0%, #e9f3ff, var(--bg) 48%);
         line-height: 1.45;
       }
-      .wrap { width: min(1050px, 92vw); margin: 0 auto; padding: 24px 0 44px; }
+      .wrap {
+        width: min(1050px, 92vw);
+        margin: 0 auto;
+        padding: 24px 0 44px;
+      }
       .hero {
         background: linear-gradient(140deg, #0f2c4f, #15497f 55%, #1d629e);
         color: #fff;
@@ -34,9 +39,20 @@
       }
       h1, h2, h3 { margin: 0 0 10px; }
       p { margin: 0 0 10px; }
-      .lead { font-size: 1.1rem; opacity: 0.96; }
-      .small { opacity: 0.88; font-size: 0.95rem; }
-      .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+      .lead {
+        font-size: 1.1rem;
+        opacity: 0.96;
+      }
+      .small {
+        opacity: 0.9;
+        font-size: 0.95rem;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
       a.btn {
         text-decoration: none;
         padding: 10px 14px;
@@ -80,7 +96,8 @@
         font-size: 0.78rem;
         font-weight: 700;
       }
-      .tag.foundational { background: #def5e8; color: #165a35; }
+      .tag.interactive { background: #ddf7f3; color: var(--teal); }
+      .tag.foundational { background: #def5e8; color: var(--green); }
       .tag.experimental { background: #ddecff; color: #0f4e8b; }
       .tag.disproven { background: #ffe4ef; color: var(--rose); }
       .tag.open { background: #fff0d8; color: var(--amber); }
@@ -91,7 +108,10 @@
         grid-template-columns: 1.35fr 1fr;
         gap: 12px;
       }
-      ol { margin: 8px 0 0; padding-left: 18px; }
+      ol, ul {
+        margin: 8px 0 0;
+        padding-left: 18px;
+      }
       li { margin: 8px 0; }
       .mono {
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -104,84 +124,91 @@
         color: var(--muted);
         font-size: 0.9rem;
       }
-      @media (max-width: 900px) { .split { grid-template-columns: 1fr; } }
+      @media (max-width: 900px) {
+        .split { grid-template-columns: 1fr; }
+      }
     </style>
   </head>
   <body>
     <main class="wrap">
       <section class="hero">
-        <h1>Schwarzschild-de Sitter Research</h1>
+        <h1>Schwarzschild-de Sitter Research Repository</h1>
         <p class="lead">
-          This repository separates what is proved, what is numerical, what is disproven, and what is still open.
+          A research archive on Schwarzschild-de Sitter thermodynamics with explicit separation between foundational, experimental, negative, and open-result tracks.
         </p>
         <p class="small">
-          If you only want to use the tool, click the green button. That is the live workbench.
+          Interactive workbench access and research navigation are provided below.
         </p>
         <div class="row">
-          <a class="btn primary" href="./workbench/">Start Tool (SdS Workbench)</a>
+          <a class="btn primary" href="./workbench/">Open SdS Workbench</a>
           <a class="btn" href="https://github.com/RRG314/sds-research/blob/main/papers/README.md">Paper Navigation</a>
-          <a class="btn" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/start-here.md">Start Here Guide</a>
+          <a class="btn" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/status.md">Project Status</a>
         </div>
-        <div class="app-url">Direct app link: https://rrg314.github.io/sds-research/workbench/</div>
+        <div class="app-url">Workbench URL: https://rrg314.github.io/sds-research/workbench/</div>
       </section>
 
       <section class="grid">
         <article class="card">
-          <span class="tag foundational">Start Here Fast</span>
-          <h3>Use the workbench immediately</h3>
-          <p>Click <strong>Start Tool (SdS Workbench)</strong> above, or open the direct app link.</p>
-          <p><a class="link" href="./workbench/">Open workbench now</a></p>
+          <span class="tag interactive">Interactive</span>
+          <h3>SdS Workbench</h3>
+          <p>State-space exploration, comparison, export, and evolution trajectories.</p>
+          <p><a class="link" href="./workbench/">Launch workbench</a></p>
         </article>
+
         <article class="card">
           <span class="tag foundational">Foundational</span>
-          <h3>Exact theory papers</h3>
-          <p>Core identities, derivations, and formula structure in 4D SdS.</p>
+          <h3>Exact theory lane</h3>
+          <p>Core identities and derivations under explicitly stated model assumptions.</p>
           <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/foundational/README.md">Open foundational lane</a></p>
         </article>
+
         <article class="card">
           <span class="tag experimental">Experimental</span>
-          <h3>Numerical and scan results</h3>
-          <p>WKB, recursive, and extension experiments with retained artifacts and outputs.</p>
+          <h3>Numerical lane</h3>
+          <p>Computational scans, reproducible outputs, and empirical diagnostics.</p>
           <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/experimental/README.md">Open experimental lane</a></p>
         </article>
+
         <article class="card">
           <span class="tag disproven">Disproven / Retracted</span>
-          <h3>Negative results kept visible</h3>
-          <p>Claims that failed audit are preserved with context, not hidden.</p>
-          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/disproven-or-retracted/README.md">Open disproven lane</a></p>
+          <h3>Negative-result lane</h3>
+          <p>Failed hypotheses retained with explicit audit context.</p>
+          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/disproven-or-retracted/README.md">Open negative-result lane</a></p>
         </article>
+
         <article class="card">
           <span class="tag open">Open questions</span>
-          <h3>What remains unresolved</h3>
-          <p>Exact spectral methods, extension behavior, and theorem-completion targets.</p>
-          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/open-questions/README.md">Open questions lane</a></p>
+          <h3>Current unresolved targets</h3>
+          <p>Outstanding exact-method and extension-theory questions.</p>
+          <p><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/open-questions/README.md">Open question lane</a></p>
         </article>
       </section>
 
       <section class="split">
         <article class="card">
-          <h2>Quick Paths</h2>
+          <h2>Suggested Reading Sequence</h2>
           <ol>
-            <li>New to the project: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/start-here.md">Start Here</a></li>
-            <li>Need formulas fast: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/theory/core-formula-sheet.md">Core Formula Sheet</a></li>
-            <li>Need status by evidence type: <a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/status.md">Project Status</a></li>
-            <li>Need app now: <a class="link" href="./workbench/">Launch Workbench</a></li>
+            <li><a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/start-here.md">Start Here</a></li>
+            <li><a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/overview/status.md">Status by evidence type</a></li>
+            <li><a class="link" href="https://github.com/RRG314/sds-research/blob/main/docs/theory/core-formula-sheet.md">Core formula sheet</a></li>
+            <li><a class="link" href="https://github.com/RRG314/sds-research/blob/main/papers/README.md">Paper lanes</a></li>
           </ol>
         </article>
+
         <article class="card">
-          <h2>Simple Pages Setup</h2>
-          <ol>
-            <li>In GitHub: <span class="mono">Settings -> Pages</span></li>
-            <li>Source: <span class="mono">Deploy from a branch</span></li>
-            <li>Branch: <span class="mono">main</span></li>
-            <li>Folder: <span class="mono">/(root)</span></li>
-          </ol>
-          <p>Root serves this page. The app is in <span class="mono">/workbench/</span>.</p>
+          <h2>Evidence Policy</h2>
+          <ul>
+            <li><span class="mono">Exact</span>: derivation-level statements within the stated model.</li>
+            <li><span class="mono">Empirical</span>: numerical or computational outcomes.</li>
+            <li><span class="mono">Approximation-based</span>: method-dependent results.</li>
+            <li><span class="mono">Disproven / Retracted</span>: retained for provenance.</li>
+            <li><span class="mono">Open</span>: unresolved questions.</li>
+          </ul>
         </article>
       </section>
 
       <footer>
-        Editorial policy: foundational claims are explicit, negative findings remain available, and open work is labeled as open.
+        Editorial principle: no overclaiming; negative results remain available; model scope is explicit.
       </footer>
     </main>
   </body>

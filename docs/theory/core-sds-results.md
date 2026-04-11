@@ -1,44 +1,71 @@
 # Core SdS Results
 
-This file is the canonical landing page for the strongest SdS-theory results in this repository.
+This document summarizes foundational SdS identities used across theory, documentation, and tooling.
 
 ## Scope
 
-- 4D Schwarzschild-de Sitter horizon thermodynamics at fixed cosmological constant
-- Exact algebraic identities and their thermodynamic consequences
-- Dimensional context for closure behavior beyond D=4
+- 4D Schwarzschild-de Sitter thermodynamics at fixed cosmological constant $\Lambda$
+- algebraic horizon identities and derived thermodynamic relations
+- dimensional context for closure behavior beyond 4D
 
-## Strongest Exact Results
+## Foundational Identities (Exact Within Model)
 
-1. Horizon constraint and entropy identity
-- Exact horizon relation in 4D SdS yields the entropy decomposition
-- Entropy deficit term appears as geometric-mean structure
+Horizon relation:
 
-2. Exact x-parametrization and temperature ratio structure
-- Closed-form expressions for key horizon and thermodynamic quantities in terms of x = r_b/r_c
-- Exact Carnot-efficiency expression used across theory and app layers
+$$
+r_b^2 + r_b r_c + r_c^2 = \frac{3}{\Lambda}
+$$
 
-3. Dimensional closure classification framing
-- 4D and 5D admit low-dimensional closure structures of distinct form
-- D>=6 does not preserve the same polynomial closure structure
+Entropy relation:
 
-## Empirical/Numerical Support
+$$
+S_{\Lambda} = S_b + S_c + \sqrt{S_b S_c}
+$$
 
-- Numerical checks in imported Python tests and scripts show machine-precision residuals for identity checks in tested ranges.
+Deficit definition:
 
-## Open / Caution Notes
+$$
+\Delta = S_{\Lambda} - S_b - S_c = \sqrt{S_b S_c}
+$$
 
-- Some interpretation-level claims remain theory-facing and should not be read as observational confirmation.
-- Use exact derivations as primary evidence; treat narrative extrapolations separately.
+Temperature formulas:
 
-## Canonical Detail Files
+$$
+T_b = \frac{1-\Lambda r_b^2}{4\pi r_b}, \qquad
+T_c = \frac{\Lambda r_c^2-1}{4\pi r_c}
+$$
+
+Exact temperature ratio using $x = r_b/r_c$:
+
+$$
+\frac{T_c}{T_b} = \frac{x(x+2)}{1+2x}
+$$
+
+Carnot-efficiency relation:
+
+$$
+\eta_C = 1 - \frac{T_c}{T_b}, \qquad
+\left.\frac{\partial \Delta}{\partial S_c}\right|_{\Lambda} = -\eta_C
+$$
+
+## Dimensional Context
+
+- 4D and 5D admit low-dimensional closure structures of different algebraic type.
+- For $D \ge 6$, the same polynomial closure structure is not preserved.
+
+## Validation Status
+
+- Symbolic and numerical checks in the imported test suites support these identities in sampled regimes.
+- These are model-level exact statements, not observational claims.
+
+## Canonical Source Files
 
 - `papers/sds-theory/sds-entropy-paper.md`
 - `papers/sds-theory/eisenstein-carnot-paper.md`
 - `docs/theory/sds-entropy-structure.md`
 - `papers/submitted-or-preprint-ready/eisenstein-coordinate-reformulation-sds-thermodynamics.pdf`
 
-## Status
+## Classification
 
-- Category: `exact`
-- Maturity: strong manuscript-level formulation with supporting computational validation
+- Evidence class: `exact`
+- Maturity: manuscript-level derivation set with computational consistency checks

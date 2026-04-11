@@ -1,6 +1,6 @@
 # Core SdS Formula Sheet
 
-This sheet is the fastest way to see the key formulas used across the repository.
+This document collects the principal formulas used by the foundational theory layer.
 
 ## Variables
 
@@ -8,8 +8,8 @@ This sheet is the fastest way to see the key formulas used across the repository
 - `r_c`: cosmological horizon radius
 - `x = r_b / r_c`
 - `S_b, S_c`: horizon entropies
-- `S_Λ = 3π/Λ`: pure de Sitter entropy at fixed `Λ`
-- `Δ`: entropy deficit
+- $S_{\Lambda} = 3\pi/\Lambda$: pure de Sitter entropy at fixed $\Lambda$
+- $\Delta$: entropy deficit
 
 ## Foundational Identities (4D SdS)
 
@@ -22,13 +22,13 @@ $$
 Entropy identity:
 
 $$
-S_\Lambda = S_b + S_c + \sqrt{S_b S_c}
+S_{\Lambda} = S_b + S_c + \sqrt{S_b S_c}
 $$
 
 Deficit definition:
 
 $$
-\Delta = S_\Lambda - S_b - S_c = \sqrt{S_b S_c}
+\Delta = S_{\Lambda} - S_b - S_c = \sqrt{S_b S_c}
 $$
 
 Entropy definitions:
@@ -46,7 +46,7 @@ T_b = \frac{1-\Lambda r_b^2}{4\pi r_b}, \qquad
 T_c = \frac{\Lambda r_c^2-1}{4\pi r_c}
 $$
 
-Exact temperature ratio in `x`:
+Exact temperature ratio:
 
 $$
 \frac{T_c}{T_b} = \frac{x(x+2)}{1+2x}
@@ -61,14 +61,14 @@ $$
 Exact deficit derivative relation:
 
 $$
-\left.\frac{\partial \Delta}{\partial S_c}\right|_\Lambda = -\eta_C
+\left.\frac{\partial \Delta}{\partial S_c}\right|_{\Lambda} = -\eta_C
 $$
 
 ## Interpretation Notes
 
-- The formulas above are treated as **foundational/exact** in this project.
-- Spectral/QNM claims are a different track and include approximation-based and negative outcomes.
-- Evolution mode in the app is parameter evolution, not a full GR simulation.
+- These formulas are classified as `exact` within the stated SdS model assumptions.
+- Spectral/QNM outputs use additional approximation and empirical layers.
+- Evolution mode in the app is a simplified semiclassical parameter model.
 
 ## Canonical Sources
 
