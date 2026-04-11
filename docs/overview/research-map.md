@@ -2,6 +2,12 @@
 
 This map summarizes where each research thread lives, what it contains, and how mature it is.
 
+Quick orientation for new readers:
+
+- `docs/overview/start-here.md`
+- `docs/overview/glossary.md`
+- `docs/overview/status.md`
+
 ## 1. Core SdS Theory
 
 - Primary locations:

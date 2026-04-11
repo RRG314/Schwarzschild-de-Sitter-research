@@ -1,73 +1,79 @@
 # Schwarzschild-de Sitter (SdS) Research Repository
 
-This repository consolidates active and historical research materials on 4D Schwarzschild-de Sitter thermodynamics, spectral/QNM analysis, correction-gap formalization, recursive spacetime extensions, and an interactive SdS workbench application.
+This repository is a structured research record for Schwarzschild-de Sitter thermodynamics.
 
-The goal is clear technical provenance: preserve exact results, empirical findings, negative outcomes, and exploratory artifacts without overstating claims.
+It is designed to be readable by both technical readers and newcomers by clearly separating:
 
-## Research Threads
+- exact/proved results
+- numerical/empirical results
+- approximation-based work
+- exploratory ideas
+- artifacts/retracted paths
+- open questions
+
+## Start Here (New Readers)
+
+1. [Project landing page](./index.html)
+2. [Start Here guide](./docs/overview/start-here.md)
+3. [Project status](./docs/overview/status.md)
+4. [Research map](./docs/overview/research-map.md)
+5. [Glossary](./docs/overview/glossary.md)
+
+## Main Research Areas
 
 1. Core SdS theory
-- Exact horizon/entropy structure in 4D SdS
-- Eisenstein coordinate formulation
-- Exact temperature ratio and Carnot-efficiency formulas
-- Dimensional closure classification work (D=4, D=5, D>=6)
+- Entropy structure and horizon identities
+- Eisenstein-style formulation
+- Exact temperature and Carnot-efficiency relations
 
-2. Spectral/QNM program
+2. Spectral / QNM program
 - Framework and derivation pipeline
-- WKB experiments and audits
-- Confirmed scaling results
-- Retracted/artifact findings documented explicitly
-- Open path toward exact (Leaver-type) methods
+- Numerical scans and audits
+- Explicit negative/retracted outcomes where applicable
 
-3. Correction-gap and cross-domain work
-- Formal theorem-schema development
-- No-go result for universal scalar gap
-- Category-specific obstruction theorems/propositions
+3. Correction-gap / cross-domain
+- Theorem-schema development
+- Scope limits and no-go framing
 
-4. Recursive spacetime extensions
-- Recursive-horizon baseline project
-- Extended (M, Lambda) and (M, Q, Lambda) system studies
-- RNdS and scalar-field audits
+4. Recursive spacetime and extensions
+- Recursive-horizon baselines
+- RNdS extension experiments
+- Robustness and scalar-field audits
 
-5. SdS Workbench app
-- Interactive state-space exploration and validation
-- Saved states, compare, exports, share URLs
-- Evolution mode with simplified semiclassical parameter flow
+5. Interactive SdS Workbench app
+- State-space exploration
+- Saved states / compare / export / share
+- Evolution mode (simplified semiclassical parameter evolution)
 
 ## Evidence Labels
 
-Every major area is classified with these labels:
+- `exact`: algebraic/closed-form derivation in stated assumptions
+- `empirical`: numerical result
+- `approximation-based`: result depends on approximation method
+- `exploratory`: hypothesis or partial path
+- `artifact` / `retracted`: known failure or superseded claim
+- `open`: unresolved question
 
-- `exact`: closed-form/algebraic results with derivations
-- `empirical`: numerical/experimental results
-- `approximation-based`: controlled approximations (for example WKB)
-- `exploratory`: ideas under development
-- `artifact` / `retracted`: known failures or superseded claims
-- `open`: unresolved questions and planned work
+## Run The Workbench Locally
 
-See [status](docs/overview/status.md) for the current project-wide map.
-
-## Quick Start
-
-### 1. Browse research documentation
-- Start with [research map](docs/overview/research-map.md)
-- Then review [status](docs/overview/status.md)
-
-### 2. Run the SdS Workbench locally
 ```bash
 cd app/sds-workbench
 npm install
 npm run dev
 ```
 
-### 3. Run app tests
+## Validate Locally
+
+App tests/build:
+
 ```bash
 cd app/sds-workbench
 npm run test
 npm run build
 ```
 
-### 4. Run migrated Python math tests (optional)
+Selected Python math tests:
+
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
@@ -80,40 +86,54 @@ pytest tests/math/horizon_test_state_space.py \
        tests/math/recursive_test_sds_identities.py -q
 ```
 
-## GitHub Pages
+## Simple GitHub Pages Deployment (Root, No Workflow)
 
-The workbench is deployable as a static Vite build from `app/sds-workbench`.
+This repo now supports a simple branch deployment from root.
 
-- Deployment workflow: `.github/workflows/deploy-pages.yml`
-- Base path is auto-resolved for Pages via `BASE_PATH`/GitHub environment in `vite.config.ts`
+1. Build and publish the app into `/workbench`:
+
+```bash
+./scripts/build/publish-pages-root.sh
+```
+
+2. Commit and push the updated `workbench/` files.
+3. In GitHub repo settings:
+- `Settings` -> `Pages`
+- `Source`: `Deploy from a branch`
+- `Branch`: `main`
+- `Folder`: `/(root)`
+
+Result:
+- Root site serves `index.html`
+- Workbench app serves from `/workbench/`
 
 ## Repository Map
 
-- `docs/overview/`: orientation, status, timeline, file index
-- `docs/theory/`: core theory landing and supporting structure notes
-- `docs/spectral/`: spectral/QNM framework, derivations, results, audits
-- `docs/correction-gap/`: formalization and cross-domain analysis
-- `docs/recursive-spacetime/`: recursive-horizon and extended-system assessments
-- `papers/`: paper drafts, stronger canonical manuscripts, preprint-ready assets
-- `app/sds-workbench/`: React + TypeScript interactive lab
-- `src/`: Python source modules (spectral, recursive horizon, recursive spacetime)
-- `experiments/`: Python experiment scripts grouped by program
-- `data/generated/`: generated experiment outputs
-- `tests/`: migrated math tests and app tests
-- `archive/`: superseded drafts, deprecated app variants, raw imports
-- `scripts/migrate/`: migration provenance and conflict records
+- `docs/overview/`: orientation, status, timeline, index, beginner guides
+- `docs/theory/`: theory summaries and core structure
+- `docs/spectral/`: spectral/QNM framework, derivations, audits
+- `docs/correction-gap/`: correction-gap formalization materials
+- `docs/recursive-spacetime/`: recursive system analyses
+- `papers/`: draft and preprint-oriented manuscript materials
+- `app/sds-workbench/`: source app (React + TypeScript)
+- `workbench/`: static build output for root GitHub Pages hosting
+- `src/`: Python modules used in experiments
+- `experiments/`: experiment scripts and program-specific runs
+- `data/generated/`: generated result files
+- `tests/`: app and math tests
+- `archive/`: preserved superseded/deprecated/raw history
+- `scripts/migrate/`: migration provenance data
 
 ## Provenance
 
-Migration provenance is preserved in:
 - `scripts/migrate/sds_migration_map.source.csv`
 - `scripts/migrate/migration-manifest.csv`
 - `scripts/migrate/migration-conflicts.json`
 
-## Current Status
+## Integrity Policy
 
-- Core 4D SdS thermodynamic identities: strong and exact
-- Spectral/QNM program: mixed (solid derivations + empirical negative findings + open exact-method stage)
-- Correction-gap program: theorem schema and no-go framing, not a single universal theorem
-- Recursive spacetime program: useful diagnostics and falsification output; multiple exploratory branches remain open
-- Workbench app: operational and now includes an evolution layer with explicit model caveats
+This repository avoids inflated claims.
+
+- Exploratory work is not presented as proved.
+- Retracted or artifact paths are retained and labeled.
+- Historical variants are archived rather than hidden.

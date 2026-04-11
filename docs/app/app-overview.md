@@ -53,10 +53,19 @@ npm run test
 npm run build
 ```
 
-### GitHub Pages
+### GitHub Pages (Simple Root Deployment)
 
-- Workflow: `.github/workflows/deploy-pages.yml`
-- Vite base path is resolved for Pages deployment in `vite.config.ts`
+This repository uses a root-level deployment path (no GitHub Actions workflow required).
+
+1. Build and publish app assets into `/workbench`:
+
+```bash
+./scripts/build/publish-pages-root.sh
+```
+
+2. Commit and push the generated `workbench/` folder.
+3. In GitHub: `Settings -> Pages -> Deploy from a branch`.
+4. Select `main` and `/(root)`.
 
 ## Key Source Files
 

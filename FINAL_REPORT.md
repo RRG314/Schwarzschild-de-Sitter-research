@@ -191,23 +191,23 @@ Implemented as a clearly-labeled simplified semiclassical model:
 
 Deployment support is configured:
 
-- Workflow: `.github/workflows/deploy-pages.yml`
-- App build base path set for Pages in `app/sds-workbench/vite.config.ts`
-- Workflow deploy trigger: pushes to `main` and manual `workflow_dispatch`
+- Root branch deployment (no workflow required)
+- Root landing page: `index.html`
+- App publish path: `workbench/` (built via `scripts/build/publish-pages-root.sh`)
+- App build base path set through `BASE_PATH=./` in the publish script
 
-Current branch pushed: `steven/sds-professional-repo`.
+Current branch pushed: `main`.
 
 ## 8. Repository URL
 
-- Repository: [RRG314/rdt-research-program](https://github.com/RRG314/rdt-research-program)
-- Branch: [`steven/sds-professional-repo`](https://github.com/RRG314/rdt-research-program/tree/steven/sds-professional-repo)
-- PR creation link: [Open PR for branch](https://github.com/RRG314/rdt-research-program/pull/new/steven/sds-professional-repo)
+- Repository: [RRG314/sds-research](https://github.com/RRG314/sds-research)
+- Branch: [`main`](https://github.com/RRG314/sds-research/tree/main)
 
 ## 9. Remaining Manual Items to Check
 
-1. Open/merge PR from `steven/sds-professional-repo` to `main`.
-2. Ensure GitHub Pages is enabled for Actions in repository settings.
-3. After merge to `main`, verify deployed Pages URL renders app and route base correctly.
+1. In GitHub repo settings, enable Pages with `Deploy from a branch`.
+2. Select branch `main`, folder `/(root)`.
+3. Verify root page and `/workbench/` load correctly.
 4. Optional: curate `archive/raw-imports/` and `papers/drafts/` into paper-ready canonical files.
 5. Optional: expand CI to run selected Python tests in GitHub Actions.
 
@@ -236,4 +236,3 @@ Local validation run (latest):
 - Docs link check: `node scripts/validate/check-doc-links.mjs` -> **no broken local links**
 - Python math tests:
   - `61 passed` across selected migrated suites
-

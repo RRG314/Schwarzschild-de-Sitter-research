@@ -1,5 +1,14 @@
 # File Index (Key Files)
 
+## Orientation / Beginner Entry
+
+- `index.html`
+- `README.md`
+- `docs/overview/start-here.md`
+- `docs/overview/glossary.md`
+- `docs/overview/status.md`
+- `docs/overview/research-map.md`
+
 ## Core Theory
 
 - `papers/sds-theory/sds-entropy-paper.md`
@@ -49,6 +58,8 @@
 - `app/sds-workbench/src/components/tabs/EvolutionTab.tsx`
 - `app/sds-workbench/src/components/tabs/ExportTab.tsx`
 - `docs/app/app-overview.md`
+- `scripts/build/publish-pages-root.sh`
+- `workbench/` (root-level static build for GitHub Pages)
 
 ## Validation and Tests
 
