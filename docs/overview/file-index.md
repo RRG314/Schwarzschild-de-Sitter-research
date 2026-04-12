@@ -53,24 +53,47 @@
 
 - `app/sds-workbench/src/engine/physics.ts`
 - `app/sds-workbench/src/engine/evolution.ts`
+- `app/sds-workbench/src/engine/tools.ts`
 - `app/sds-workbench/src/store/appStore.ts`
 - `app/sds-workbench/src/components/tabs/ExploreTab.tsx`
 - `app/sds-workbench/src/components/tabs/EvolutionTab.tsx`
+- `app/sds-workbench/src/components/tabs/ToolsTab.tsx`
 - `app/sds-workbench/src/components/tabs/ExportTab.tsx`
 - `docs/app/app-overview.md`
 - `scripts/build/publish-pages-root.sh`
 - `workbench/` (root-level static build for GitHub Pages)
 
+## SDS-Inspired Practical Tools
+
+- `src/sds/core/exact.py`
+- `src/sds/tools/dual_reservoir/controller.py`
+- `src/sds/tools/scheduler/deficit_scheduler.py`
+- `src/sds/tools/monitor/state_space.py`
+- `src/sds/tools/early_stopping/equilibrium.py`
+- `src/sds/tools/control_family/one_parameter.py`
+- `src/sds/benchmarks/suite.py`
+- `docs/overview/sds-to-tools-map.md`
+- `docs/benchmarks/sds-tools-benchmark-summary.md`
+- `SDS_TOOLS_FINAL_REPORT.md`
+
 ## Validation and Tests
 
 - `app/sds-workbench/src/engine/__tests__/physics.test.ts`
 - `app/sds-workbench/src/engine/__tests__/evolution.test.ts`
+- `app/sds-workbench/src/engine/__tests__/tools.test.ts`
 - `tests/math/horizon_test_state_space.py`
 - `tests/math/recursive_test_horizon_reconstruction.py`
 - `tests/math/recursive_test_physical_admissibility.py`
 - `tests/math/recursive_test_recursive_flows.py`
 - `tests/math/recursive_test_scalar_field_usefulness.py`
 - `tests/math/recursive_test_sds_identities.py`
+- `tests/tools/test_structural_budget.py`
+- `tests/tools/test_monitor.py`
+- `tests/tools/test_controller_scheduler.py`
+- `tests/tools/test_early_stopping.py`
+- `tests/tools/test_control_family.py`
+- `tests/integration/test_tools_benchmark_smoke.py`
+- `tests/regression/test_tools_regression_guards.py`
 
 ## Provenance and Archive
 

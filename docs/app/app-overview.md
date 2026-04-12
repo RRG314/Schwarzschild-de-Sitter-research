@@ -10,6 +10,7 @@
 - Geometry and thermodynamics tabs: formula-aligned diagnostics
 - Compare tab: side-by-side state comparison
 - Export tab: JSON/CSV export for states, sweeps, and comparisons
+- Tools tab: benchmarked SDS-inspired practical tools with promotion / demotion decisions
 - Share URLs: reproducible parameterized links
 - Saved states: local persistence for repeated workflows
 
@@ -58,6 +59,8 @@ npm run build
 
 - `app/sds-workbench/src/engine/physics.ts`
 - `app/sds-workbench/src/engine/evolution.ts`
+- `app/sds-workbench/src/engine/tools.ts`
 - `app/sds-workbench/src/store/appStore.ts`
 - `app/sds-workbench/src/components/tabs/EvolutionTab.tsx`
+- `app/sds-workbench/src/components/tabs/ToolsTab.tsx`
 - `app/sds-workbench/src/utils/export.ts`

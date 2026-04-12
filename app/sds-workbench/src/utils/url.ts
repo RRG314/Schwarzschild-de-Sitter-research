@@ -27,7 +27,7 @@ export function decodeUrl(): Partial<UrlState> {
   const l = parseFloat(params.get('l') || '');
   if (isFinite(l) && l > 0) result.lambda = l;
   const t = params.get('t') as TabId;
-  if (['explore','geometry','thermo','evolution','compare','export'].includes(t)) result.tab = t;
+  if (['explore','geometry','thermo','evolution','tools','compare','export'].includes(t)) result.tab = t;
   const m = params.get('m') as Mode;
   if (['beginner','technical'].includes(m)) result.mode = m;
   return result;

@@ -38,6 +38,24 @@ Primary files:
 - `docs/correction-gap/correction_gap_formalization.md`
 - `app/sds-workbench/src/engine/evolution.ts`
 
+## Applied / Empirical SDS-Inspired Tools
+
+- Recommended:
+  - dual-reservoir controller
+  - deficit-driven scheduler
+- Experimental:
+  - state-space monitor
+  - equilibrium early stopping
+  - one-parameter control family
+
+Primary files:
+
+- `docs/overview/sds-to-tools-map.md`
+- `docs/benchmarks/sds-tools-benchmark-summary.md`
+- `docs/tools/dual-reservoir-controller.md`
+- `docs/tools/deficit-driven-scheduler.md`
+- `SDS_TOOLS_FINAL_REPORT.md`
+
 ## Disproven / Retracted / Superseded
 
 - Q-Carnot correspondence in spectral program retracted as artifact.
@@ -67,4 +85,5 @@ Primary files:
 
 1. Exact-method spectral solver path (Leaver-style or equivalent).
 2. Additional evolution-mode validation and edge-case tests.
-3. Continued canonicalization of archived variants with explicit evidence labels.
+3. Larger-task validation for the promoted SDS-inspired controllers and schedulers.
+4. Continued canonicalization of archived variants with explicit evidence labels.

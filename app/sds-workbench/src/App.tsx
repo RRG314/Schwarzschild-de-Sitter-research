@@ -5,6 +5,7 @@ import { ExploreTab } from './components/tabs/ExploreTab';
 import { GeometryTab } from './components/tabs/GeometryTab';
 import { ThermodynamicsTab } from './components/tabs/ThermodynamicsTab';
 import { EvolutionTab } from './components/tabs/EvolutionTab';
+import { ToolsTab } from './components/tabs/ToolsTab';
 import { CompareTab } from './components/tabs/CompareTab';
 import { ExportTab } from './components/tabs/ExportTab';
 import './styles/globals.css';
@@ -14,6 +15,7 @@ const TABS = [
   { id: 'geometry', label: 'Geometry' },
   { id: 'thermo', label: 'Thermodynamics' },
   { id: 'evolution', label: 'Evolution' },
+  { id: 'tools', label: 'Tools' },
   { id: 'compare', label: 'Compare' },
   { id: 'export', label: 'Export' },
 ] as const;
@@ -43,6 +45,7 @@ export default function App() {
           {activeTab === 'geometry' && <GeometryTab />}
           {activeTab === 'thermo' && <ThermodynamicsTab />}
           {activeTab === 'evolution' && <EvolutionTab />}
+          {activeTab === 'tools' && <ToolsTab />}
           {activeTab === 'compare' && <CompareTab />}
           {activeTab === 'export' && <ExportTab />}
         </main>

@@ -33,7 +33,7 @@ export interface SavedState {
   createdAt: number;
 }
 
-export type TabId = 'explore' | 'geometry' | 'thermo' | 'evolution' | 'compare' | 'export';
+export type TabId = 'explore' | 'geometry' | 'thermo' | 'evolution' | 'tools' | 'compare' | 'export';
 export type Mode = 'beginner' | 'technical';
 export type InputMode = 'x' | 'mass' | 'delta';
 

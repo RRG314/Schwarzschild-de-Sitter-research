@@ -9,9 +9,11 @@ This repository presents a structured research program on Schwarzschild-de Sitte
 
 The editorial standard is explicit claim discipline: exact results, empirical results, approximation-based results, negative findings, and open questions are separated and labeled.
 
+It also includes an SDS-inspired practical tools layer. Those tools reuse structural ideas from the SdS program, but they are documented separately from the exact theory and promoted only when they survive direct baseline comparison.
+
 ## Current Release
 
-- Release notes: `docs/releases/v1.0.0.md`
+- Release notes: `docs/releases/v1.1.0.md`
 - Changelog: `CHANGELOG.md`
 - Live workbench: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
 
@@ -19,6 +21,25 @@ The editorial standard is explicit claim discipline: exact results, empirical re
 
 - Repository landing page: [https://rrg314.github.io/sds-research/](https://rrg314.github.io/sds-research/)
 - Direct workbench: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
+
+## SDS-Inspired Practical Tools
+
+Supported tools:
+
+- `Dual-Reservoir Controller`: optimizer control for tuning-sensitive regimes
+- `Deficit-Driven Scheduler`: drop-in scheduler driven by an SDS-style useful-imbalance signal
+
+Experimental but kept:
+
+- `State-Space Monitor`
+- `Equilibrium Early Stopping`
+- `One-Parameter Control Family`
+
+Start here:
+
+- `docs/overview/sds-to-tools-map.md`
+- `docs/benchmarks/sds-tools-benchmark-summary.md`
+- `SDS_TOOLS_FINAL_REPORT.md`
 
 ## Evidence Classes
 
@@ -65,6 +86,11 @@ The editorial standard is explicit claim discipline: exact results, empirical re
 - saved states, comparisons, exports
 - evolution trajectories under simplified semiclassical parameter flow
 
+6. SDS-inspired practical tools
+- benchmarked controllers, schedulers, diagnostics, and stopping rules
+- honest promotion/demotion based on baseline comparison
+- workbench Tools tab for visual inspection and export
+
 ## Repository Map
 
 - `docs/overview/`: orientation, status, timeline, glossary, file index
@@ -73,6 +99,8 @@ The editorial standard is explicit claim discipline: exact results, empirical re
 - `docs/correction-gap/`: correction-gap formalization and limits
 - `docs/recursive-spacetime/`: recursive and extension analyses
 - `docs/releases/`: release notes
+- `docs/tools/`: plain-English tool docs with supported vs experimental labeling
+- `docs/benchmarks/`: benchmark summaries and promotion decisions
 - `papers/`: lane-based navigation and manuscript locations
 - `app/sds-workbench/`: React + TypeScript workbench source
 - `workbench/`: static build served from GitHub Pages
@@ -105,6 +133,12 @@ pytest tests/math/horizon_test_state_space.py \
        tests/math/recursive_test_recursive_flows.py \
        tests/math/recursive_test_scalar_field_usefulness.py \
        tests/math/recursive_test_sds_identities.py -q
+```
+
+SDS-inspired tool suite:
+
+```bash
+./scripts/validate/run_sds_tools_suite.sh
 ```
 
 ## Provenance and Integrity

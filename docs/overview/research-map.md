@@ -101,7 +101,32 @@ Quick orientation for new readers:
   - `app/sds-workbench/src/engine/evolution.ts`
   - `docs/app/app-overview.md`
 
-## 6. Archive and History
+## 6. SDS-Inspired Practical Tools
+
+- Primary locations:
+  - `src/sds/`
+  - `experiments/optimizer/`
+  - `experiments/scheduler/`
+  - `experiments/diagnostics/`
+  - `experiments/early_stopping/`
+  - `experiments/control_family/`
+  - `docs/tools/`
+  - `docs/benchmarks/`
+- Main content:
+  - dual-reservoir optimizer control
+  - deficit-driven scheduling
+  - state-space monitoring
+  - equilibrium-style early stopping
+  - one-parameter control families
+- Status:
+  - mixed `empirical` with explicit supported vs experimental separation
+- Strongest canonical files:
+  - `src/sds/benchmarks/suite.py`
+  - `docs/overview/sds-to-tools-map.md`
+  - `docs/benchmarks/sds-tools-benchmark-summary.md`
+  - `SDS_TOOLS_FINAL_REPORT.md`
+
+## 7. Archive and History
 
 - Primary locations:
   - `archive/old-drafts/`
@@ -114,7 +139,7 @@ Quick orientation for new readers:
 - Status:
   - `artifact` / historical provenance only
 
-## 7. Provenance and Migration Records
+## 8. Provenance and Migration Records
 
 - `scripts/migrate/sds_migration_map.source.csv`
 - `scripts/migrate/migration-manifest.csv`
