@@ -3,7 +3,7 @@
 ## Main theory code
 - `src/sds/core/exact.py`: exact structural budget helpers
 - `src/sds/core/thermo.py`: exact phase-family quantities and phase-curve relation
-- `src/sds/core/dimensional.py`: D=5 closure check and D>=6 nonclosure witnesses
+- `src/sds/core/dimensional.py`: D=5 closure check, D>=6 nonclosure witnesses, and D>=6 small-`mu` asymptotic isolation helpers
 - `src/sds_state.py`: direct 4D SdS state calculations and exact thermodynamic identities
 
 ## Main validation paths

@@ -2,7 +2,11 @@ from __future__ import annotations
 
 import numpy as np
 
-from src.sds.core.dimensional import d5_entropy_closure_residual, higher_dimensional_nonclosure_witness
+from src.sds.core.dimensional import (
+    d5_entropy_closure_residual,
+    higher_dimensional_nonclosure_witness,
+    higher_dimensional_small_mu_asymptotics,
+)
 from src.sds.core.thermo import carnot_efficiency_derivative, deficit_fraction_derivative, exact_phase_state, phase_curve_polynomial
 
 
@@ -34,3 +38,13 @@ def test_d6_candidate_two_root_sum_is_not_fixed_by_lambda_alone() -> None:
     rows = higher_dimensional_nonclosure_witness(6, 1.0, (0.02, 0.06, 0.1))
     values = [row.candidate_sum_r2 for row in rows]
     assert max(values) - min(values) > 1e-3
+
+
+def test_higher_dimensional_small_mu_asymptotics_track_nonclosure_deviation() -> None:
+    rows = higher_dimensional_small_mu_asymptotics(6, 1.0, (1e-4, 5e-4, 1e-3))
+    actual = [row.actual_deviation for row in rows]
+    predicted = [row.predicted_deviation for row in rows]
+    assert all(value > 0.0 for value in actual)
+    assert all(value > 0.0 for value in predicted)
+    relative_errors = [abs(row.actual_deviation - row.predicted_deviation) / row.actual_deviation for row in rows]
+    assert max(relative_errors) < 0.1

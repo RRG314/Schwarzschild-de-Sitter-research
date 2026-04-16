@@ -11,6 +11,7 @@
 
 ## Validated / falsification-backed
 - D>=6 fixed-`Lambda` two-root candidate sums are not constant across mass on the tested witness family
+- D>=6 small-`mu` asymptotics explain the failure mechanism quantitatively: the candidate sum deviates from `l^2` by a positive leading term of order `mu^{2/(D-3)}`
 - spectral/WKB negative results remain negative and are not promoted as exact theorems
 - tool layer remains secondary to the exact theory
 

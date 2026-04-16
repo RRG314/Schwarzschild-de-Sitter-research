@@ -14,6 +14,7 @@ A theorem-first Schwarzschild-de Sitter research repository with exact thermodyn
 
 ### Validated / falsification-backed
 - D>=6 two-root fixed-`Lambda` candidate closures fail on explicit witness families
+- D>=6 small-`mu` asymptotics give a clean dimensional-isolation reason: `r_b^2+r_c^2` deviates from `l^2` by a positive leading term of order `mu^{2/(D-3)}` and therefore cannot stay fixed
 - multiple spectral pattern claims remain demoted or negative rather than overstated
 
 ## Main Honest Limits

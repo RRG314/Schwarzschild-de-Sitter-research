@@ -30,3 +30,34 @@ What is **not** yet claimed:
 ## Why this matters
 
 The D=4 and D=5 cases look similar at first glance, but they come from different algebraic coincidences. Treating them as the start of a universal dimensional sequence is not currently justified.
+
+## Small-`mu` dimensional isolation lane for `D>=6`
+
+The repo now keeps a sharper asymptotic reason for the higher-dimensional failure of the tempting candidate
+
+$$
+r_b^2 + r_c^2 = \text{constant depending only on } \Lambda.
+$$
+
+For `D>=6` and small positive mass parameter `mu`, the horizon polynomial gives:
+
+- a small black-hole root with
+  $$
+  r_b^2 \sim \mu^{2/(D-3)},
+  $$
+- a cosmological root with
+  $$
+  r_c^2 \sim l^2 - \mu / l^{D-5}.
+  $$
+
+So
+
+$$
+r_b^2 + r_c^2
+\sim
+l^2 + \mu^{2/(D-3)} - \mu / l^{D-5},
+$$
+
+which varies with `mu` for every `D>=6`.
+
+This does not yet classify every imaginable higher-dimensional closure quantity, but it does give a clean asymptotic explanation for why the simple 5D quadratic closure mechanism does not persist.

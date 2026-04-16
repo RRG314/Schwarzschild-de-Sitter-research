@@ -16,6 +16,17 @@ class DimensionalWitnessRow:
     candidate_sum_r2: float
 
 
+@dataclass(frozen=True)
+class SmallMuAsymptoticRow:
+    dimension: int
+    curvature_length: float
+    mass_parameter: float
+    actual_sum_r2: float
+    predicted_sum_r2: float
+    actual_deviation: float
+    predicted_deviation: float
+
+
 def horizon_polynomial_coefficients(dimension: int, curvature_length: float, mass_parameter: float) -> list[float]:
     if dimension < 4:
         raise ValueError("dimension must be at least 4")
@@ -61,6 +72,42 @@ def higher_dimensional_nonclosure_witness(
                 black_hole_radius=rb,
                 cosmological_radius=rc,
                 candidate_sum_r2=rb * rb + rc * rc,
+            )
+        )
+    return rows
+
+
+def small_mu_sum_asymptotic_prediction(dimension: int, curvature_length: float, mass_parameter: float) -> float:
+    if dimension <= 5:
+        raise ValueError("Use dimension >= 6 for the higher-dimensional asymptotic lane")
+    if mass_parameter <= 0.0:
+        raise ValueError("mass_parameter must be positive")
+    leading_small_root = mass_parameter ** (2.0 / (dimension - 3))
+    leading_cosmological_shift = mass_parameter / (curvature_length ** (dimension - 5))
+    return curvature_length * curvature_length + leading_small_root - leading_cosmological_shift
+
+
+def higher_dimensional_small_mu_asymptotics(
+    dimension: int,
+    curvature_length: float,
+    mass_parameters: tuple[float, ...],
+) -> list[SmallMuAsymptoticRow]:
+    if dimension <= 5:
+        raise ValueError("Use dimension >= 6 for the higher-dimensional asymptotic lane")
+    rows = []
+    for mass_parameter in mass_parameters:
+        rb, rc = positive_horizon_roots(dimension, curvature_length, mass_parameter)
+        actual_sum = rb * rb + rc * rc
+        predicted_sum = small_mu_sum_asymptotic_prediction(dimension, curvature_length, mass_parameter)
+        rows.append(
+            SmallMuAsymptoticRow(
+                dimension=dimension,
+                curvature_length=curvature_length,
+                mass_parameter=mass_parameter,
+                actual_sum_r2=actual_sum,
+                predicted_sum_r2=predicted_sum,
+                actual_deviation=actual_sum - curvature_length * curvature_length,
+                predicted_deviation=predicted_sum - curvature_length * curvature_length,
             )
         )
     return rows
