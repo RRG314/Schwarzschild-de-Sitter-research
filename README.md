@@ -53,7 +53,10 @@ Start here:
 
 - Orientation: `docs/overview/start-here.md`
 - Status by evidence type: `docs/overview/status.md`
+- Validation entrypoint: `docs/overview/validation-entrypoint.md`
 - Formula summary: `docs/theory/core-formula-sheet.md`
+- Exact phase-family structure: `docs/theory/phase-curve-structure.md`
+- Dimensional closure classification: `docs/theory/dimensional-closure-classification.md`
 - Paper navigation: `papers/README.md`
 - Foundational lane: `papers/foundational/README.md`
 - Experimental lane: `papers/experimental/README.md`
@@ -95,6 +98,7 @@ Start here:
 
 - `docs/overview/`: orientation, status, timeline, glossary, file index
 - `docs/theory/`: foundational summaries and formula sheets
+- `docs/research-program/`: branch audit, open problems, novelty assessment
 - `docs/spectral/`: spectral framework, derivations, audits, status files
 - `docs/correction-gap/`: correction-gap formalization and limits
 - `docs/recursive-spacetime/`: recursive and extension analyses
@@ -109,6 +113,15 @@ Start here:
 - `data/generated/`: generated numerical outputs
 - `tests/`: app and math tests
 - `archive/`: historical variants and deprecated artifacts
+
+## Current Research Program Reports
+
+- `STATUS.md`
+- `SYSTEM_REPORT.md`
+- `FINAL_REPORT.md`
+- `docs/research-program/branch-audit.md`
+- `docs/research-program/open-problem-program.md`
+- `docs/research-program/novelty-assessment.md`
 
 ## Reproducibility (Local)
 
