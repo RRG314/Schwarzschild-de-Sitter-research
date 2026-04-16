@@ -61,3 +61,5 @@ $$
 which varies with `mu` for every `D>=6`.
 
 This does not yet classify every imaginable higher-dimensional closure quantity, but it does give a clean asymptotic explanation for why the simple 5D quadratic closure mechanism does not persist.
+
+See also [Dimensional Isolation Asymptotics](dimensional-isolation-asymptotics.md).

@@ -6,6 +6,7 @@ from src.sds.core.dimensional import (
     d5_entropy_closure_residual,
     higher_dimensional_nonclosure_witness,
     higher_dimensional_small_mu_asymptotics,
+    higher_dimensional_small_mu_positive_gap,
 )
 from src.sds.core.thermo import carnot_efficiency_derivative, deficit_fraction_derivative, exact_phase_state, phase_curve_polynomial
 
@@ -48,3 +49,8 @@ def test_higher_dimensional_small_mu_asymptotics_track_nonclosure_deviation() ->
     assert all(value > 0.0 for value in predicted)
     relative_errors = [abs(row.actual_deviation - row.predicted_deviation) / row.actual_deviation for row in rows]
     assert max(relative_errors) < 0.1
+
+
+def test_small_mu_positive_gap_holds_across_multiple_higher_dimensions() -> None:
+    for dimension in (6, 7, 8, 9):
+        assert higher_dimensional_small_mu_positive_gap(dimension, 1.0, (1e-8, 1e-7, 1e-6, 1e-5))

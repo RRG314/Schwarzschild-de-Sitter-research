@@ -18,6 +18,7 @@
 - `docs/theory/sds-entropy-structure.md`
 - `docs/theory/phase-curve-structure.md`
 - `docs/theory/dimensional-closure-classification.md`
+- `docs/theory/dimensional-isolation-asymptotics.md`
 - `docs/research-program/branch-audit.md`
 - `docs/research-program/open-problem-program.md`
 - `docs/research-program/novelty-assessment.md`

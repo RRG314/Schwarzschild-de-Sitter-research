@@ -5,6 +5,8 @@ from .dimensional import (
     d5_entropy_closure_residual,
     higher_dimensional_nonclosure_witness,
     higher_dimensional_small_mu_asymptotics,
+    higher_dimensional_small_mu_positive_gap,
+    small_mu_leading_exponent,
     small_mu_sum_asymptotic_prediction,
 )
 from .exact import StructuralBudget, structural_budget_from_x
@@ -18,7 +20,9 @@ __all__ = [
     "exact_phase_state",
     "higher_dimensional_nonclosure_witness",
     "higher_dimensional_small_mu_asymptotics",
+    "higher_dimensional_small_mu_positive_gap",
     "phase_curve_polynomial",
+    "small_mu_leading_exponent",
     "small_mu_sum_asymptotic_prediction",
     "structural_budget_from_x",
 ]

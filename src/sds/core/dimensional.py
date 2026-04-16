@@ -25,6 +25,7 @@ class SmallMuAsymptoticRow:
     predicted_sum_r2: float
     actual_deviation: float
     predicted_deviation: float
+    leading_exponent: float
 
 
 def horizon_polynomial_coefficients(dimension: int, curvature_length: float, mass_parameter: float) -> list[float]:
@@ -87,6 +88,12 @@ def small_mu_sum_asymptotic_prediction(dimension: int, curvature_length: float, 
     return curvature_length * curvature_length + leading_small_root - leading_cosmological_shift
 
 
+def small_mu_leading_exponent(dimension: int) -> float:
+    if dimension <= 5:
+        raise ValueError("Use dimension >= 6 for the higher-dimensional asymptotic lane")
+    return 2.0 / (dimension - 3)
+
+
 def higher_dimensional_small_mu_asymptotics(
     dimension: int,
     curvature_length: float,
@@ -108,6 +115,16 @@ def higher_dimensional_small_mu_asymptotics(
                 predicted_sum_r2=predicted_sum,
                 actual_deviation=actual_sum - curvature_length * curvature_length,
                 predicted_deviation=predicted_sum - curvature_length * curvature_length,
+                leading_exponent=small_mu_leading_exponent(dimension),
             )
         )
     return rows
+
+
+def higher_dimensional_small_mu_positive_gap(
+    dimension: int,
+    curvature_length: float,
+    mass_parameters: tuple[float, ...],
+) -> bool:
+    rows = higher_dimensional_small_mu_asymptotics(dimension, curvature_length, mass_parameters)
+    return all(row.actual_deviation > 0.0 for row in rows)
