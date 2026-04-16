@@ -43,8 +43,8 @@ All trajectory quantities are reconstructed through the shared SdS engine at eac
 
 ## Public Access
 
-- Pages landing: `https://rrg314.github.io/sds-research/`
-- Direct workbench: `https://rrg314.github.io/sds-research/workbench/`
+- Pages landing: `https://rrg314.github.io/Schwarzschild-de-Sitter-research/`
+- Direct workbench: `https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/`
 
 ## Local Verification
 

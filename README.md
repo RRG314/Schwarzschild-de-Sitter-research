@@ -1,8 +1,8 @@
 # Schwarzschild-de Sitter (SdS) Research Repository
 
-[![Release](https://img.shields.io/github/v/release/RRG314/sds-research?display_name=tag)](https://github.com/RRG314/sds-research/releases)
+[![Release](https://img.shields.io/github/v/release/RRG314/sds-research?display_name=tag)](https://github.com/RRG314/Schwarzschild-de-Sitter-research/releases)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/sds-research/workbench/)
+[![Workbench](https://img.shields.io/badge/Workbench-Live-0f8f82)](https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/)
 [![Evidence Policy](https://img.shields.io/badge/Evidence-Exact%20%7C%20Empirical%20%7C%20Retracted-1f6feb)](./docs/overview/status.md)
 
 This repository presents a structured research program on Schwarzschild-de Sitter thermodynamics, spectral/QNM analysis, correction-gap formalization, recursive extensions, and an interactive workbench.
@@ -15,12 +15,12 @@ It also includes an SDS-inspired practical tools layer. Those tools reuse struct
 
 - Release notes: `docs/releases/v1.1.0.md`
 - Changelog: `CHANGELOG.md`
-- Live workbench: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
+- Live workbench: [https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/](https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/)
 
 ## Interactive Workbench
 
-- Repository landing page: [https://rrg314.github.io/sds-research/](https://rrg314.github.io/sds-research/)
-- Direct workbench: [https://rrg314.github.io/sds-research/workbench/](https://rrg314.github.io/sds-research/workbench/)
+- Repository landing page: [https://rrg314.github.io/Schwarzschild-de-Sitter-research/](https://rrg314.github.io/Schwarzschild-de-Sitter-research/)
+- Direct workbench: [https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/](https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/)
 
 ## SDS-Inspired Practical Tools
 

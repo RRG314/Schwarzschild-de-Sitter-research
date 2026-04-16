@@ -4,7 +4,7 @@ This guide provides a concise entry path for new readers.
 
 ## Direct Workbench Access
 
-- `https://rrg314.github.io/sds-research/workbench/`
+- `https://rrg314.github.io/Schwarzschild-de-Sitter-research/workbench/`
 
 ## Project Objective
 

@@ -5,7 +5,7 @@ type: software
 authors:
   - family-names: Reid
     given-names: Steven
-repository-code: "https://github.com/RRG314/sds-research"
+repository-code: "https://github.com/RRG314/Schwarzschild-de-Sitter-research"
 license: MIT
 abstract: >
   Consolidated research repository for 4D Schwarzschild-de Sitter thermodynamics,
